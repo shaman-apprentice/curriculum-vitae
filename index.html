@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <head>
+    <title>Torsten Knauf &#128077;</title>
+    <link rel='shortcut icon' type='image/x-icon' href='/assets/favicon.ico' />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index-tablet.css" />
+
+    <script type="module">
+      import {CurriculumVitaAboutMe } from '/src/curriculum-vita-about-me.js';
+
+      customElements.define('curriculum-vita-about-me', CurriculumVitaAboutMe);
+    </script>
+    <script>
+      window.curriculumVitaeData = {
+        aboutMe: [
+          {
+            name: 'Wohnort',
+            lines: ['Hasselwerderstr. 32', '12439 Berlin'],
+          },
+          {
+            name: 'Kontakt',
+            lines: ['+49 151 / 502 515 84', 'Torsten.Knauf@gmx.de'],
+          },
+          {
+            name: 'Geboren',
+            lines: ['30.11.1989 in Köln'],
+          },
+          {
+            name: 'Geschwister',
+            lines: ['Stefan (1985)', 'Barbara (1987)', 'Cordula (1995)'],
+          },
+        ],
+      };
+    </script>
+  </head>
+
+  <body>
+    <section name="heading_of_curriculum_vitae">
+      <h2>Lebenslauf - Torsten Knauf</h2>
+    </section>
+
+    <curriculum-vita-about-me data-src="curriculumVitaeData.aboutMe"></curriculum-vita-about-me>
+  </body>
+</html>
