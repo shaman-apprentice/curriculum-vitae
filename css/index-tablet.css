@@ -1,8 +1,13 @@
+@media screen and (min-width: 210mm) {
+  body {
+    border: 1px solid grey;
+    margin: auto;
+  }
+}
+
 @media screen and (min-width: 640px) {
   body {
-    width: calc(min(100vw, 210mm) - 10px); /* A4 is 210mm * 296mm */
-    margin: 1em;
-    border: 10px grey solid;
+    max-width: 210mm; /* A4 is 210mm * 296mm sized */
   }
 
   p {
@@ -12,7 +17,8 @@
   curriculum-vita-about-me {
     display: grid;
     justify-content: space-around;
-    grid-template-areas: 'about-me application-photo application-photo';
+    grid-template-areas: 'about-me application-photo';
+    grid-template-columns: 2fr 1fr;
   }
 
   curriculum-vita-about-me [name='about-me'] {
@@ -25,6 +31,5 @@
 
   curriculum-vita-about-me section[name='application-photo'] img {
     max-height: 100%;
-    margin: initial;
   }
 }

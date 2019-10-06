@@ -6,8 +6,7 @@ p {
  * About me
  */
 curriculum-vita-about-me {
-  background-color: lightgrey;
-  overflow: hidden;
+  background-color: lightgrey; /* TODO: why no effect in mobile view? */
 }
 
 curriculum-vita-about-me section[name='application-photo'] img {
