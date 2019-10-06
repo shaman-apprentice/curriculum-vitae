@@ -1,0 +1,48 @@
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0 auto;
+    color-adjust: exact;
+  }
+
+  img[name='QR-code-to-webpage'] {
+    display: inline-block;
+    grid-area: qr-code;
+    margin: auto;
+    width: 75%;
+  }
+
+  curriculum-vita-about-me section[name='application-photo'] img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  a {
+    text-decoration: inherit;
+    color: inherit;
+  }
+
+  a[print-href]::after {
+    content: ' (' attr(href) ')';
+  }
+
+  curriculum-vita-about-me {
+    grid-template-areas: 'about-me qr-code application-photo';
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  curriculum-vita-separator {
+    page-break-after: avoid;
+  }
+
+  /*
+  // The following does not work in combi with grid so far.
+  // Hence manual hack below for adjusting page breaks ``
+  curriculum-vita-section section[name='date'],
+  curriculum-vita-section section[name='what'] {
+    page-break-inside: avoid;
+  } */
+  section[hacky-page-break] {
+    padding-bottom: var(--hacky-page-break);
+  }
+}

@@ -1,0 +1,71 @@
+@media screen and (min-width: 210mm) {
+  /* A4 is 210mm * 296mm sized */
+  body {
+    background-color: black;
+  }
+
+  section[name='curriculum_vitae'] {
+    max-width: 210mm;
+    margin: auto;
+    background-color: white;
+  }
+}
+
+@media print, (min-width: 640px) {
+  section[name='curriculum_vitae'] {
+    padding: 32px;
+  }
+  p {
+    margin: 0.5em;
+  }
+
+  /*
+   * About me
+   */
+  curriculum-vita-about-me {
+    display: grid;
+    justify-content: space-around;
+    grid-template-areas: 'about-me application-photo';
+    grid-template-columns: 2fr 1fr;
+  }
+
+  curriculum-vita-about-me [name='about-me'] {
+    grid-area: about-me;
+  }
+
+  curriculum-vita-about-me [name='application-photo'] {
+    grid-area: application-photo;
+  }
+
+  /*
+  * Skills
+  */
+  curriculum-vita-skills section[name='skill-entries'] {
+    display: grid;
+    justify-content: space-around;
+    grid-auto-flow: column;
+  }
+
+  /*
+   * Sections
+   */
+  curriculum-vita-section section[name='entries'] {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 16px;
+  }
+
+  curriculum-vita-section section[name='date'] {
+    margin-top: 0;
+  }
+
+  curriculum-vita-section section[name='what'] h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  curriculum-vita-section section[name='what'] p {
+    padding-left: 0;
+  }
+}
