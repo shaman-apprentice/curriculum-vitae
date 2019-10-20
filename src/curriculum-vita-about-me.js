@@ -6,6 +6,7 @@ export class CurriculumVitaAboutMe extends BaseComponent {
       <section name="application-photo">
         <img src="./assets/application_photo.jpg" />
       </section>
+      <img name="QR-code-to-webpage" src="./assets/QR-code-to-webpage.svg"/>
       <section name="about-me">
         ${data.reduce((acc, { name, lines }) => {
           acc += `

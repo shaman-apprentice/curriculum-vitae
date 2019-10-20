@@ -1,0 +1,24 @@
+@media print {
+  @page {
+    size: auto;
+    margin: 0mm;
+    color-adjust: exact;
+  }
+
+  curriculum-vita-about-me {
+    grid-template-areas: 'about-me qr-code application-photo';
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  img[name='QR-code-to-webpage'] {
+    display: inline-block;
+    grid-area: qr-code;
+    margin: auto;
+    width: 75%;
+  }
+
+  a {
+    text-decoration: inherit;
+    color: inherit;
+  }
+}

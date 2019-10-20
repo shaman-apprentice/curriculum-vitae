@@ -16,6 +16,10 @@ section[name='heading_of_curriculum_vitae'] h2 {
   padding: 8px;
 }
 
+img[name='QR-code-to-webpage'] {
+  display: none;
+}
+
 p {
   margin: 0.25em;
 }

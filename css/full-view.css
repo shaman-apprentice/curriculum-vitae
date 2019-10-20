@@ -11,7 +11,10 @@
   }
 }
 
-@media screen and (min-width: 640px) {
+@media print, (min-width: 640px) {
+  section[name='curriculum_vitae'] {
+    padding: 32px;
+  }
   p {
     margin: 0.5em;
   }
