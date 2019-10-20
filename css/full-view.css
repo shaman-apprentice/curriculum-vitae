@@ -16,6 +16,9 @@
     margin: 0.5em;
   }
 
+  /*
+   * About me
+   */
   curriculum-vita-about-me {
     display: grid;
     justify-content: space-around;
@@ -33,5 +36,28 @@
 
   curriculum-vita-about-me section[name='application-photo'] img {
     max-height: 100%;
+  }
+
+  /*
+   * Sections
+   */
+  curriculum-vita-section section[name='entries'] {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 16px;
+  }
+
+  curriculum-vita-section section[name='date'] {
+    margin-top: 0;
+  }
+
+  curriculum-vita-section section[name='what'] h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  curriculum-vita-section section[name='what'] p {
+    padding-left: 0;
   }
 }
