@@ -77,4 +77,5 @@ curriculum-vita-section section[name='what'] h4 {
 
 curriculum-vita-section section[name='what'] p {
   padding-left: 1em;
+  text-align: justify;
 }
