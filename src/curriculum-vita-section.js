@@ -5,7 +5,7 @@ export class CurriculumVitaSection extends BaseComponent {
     this.innerHTML = `
       <h3>${data.title}</h3>
       <hr />
-      <section name="content">
+      <section name="entries">
         ${data.entries.map(renderSectionContent).join('')}
       </section>
     `;
