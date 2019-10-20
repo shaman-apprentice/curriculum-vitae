@@ -3,8 +3,9 @@ import { BaseComponent } from './BaseComponent.js';
 export class CurriculumVitaSection extends BaseComponent {
   render(data) {
     this.innerHTML = `
-      <h3 class="curriculum-vita-separator">${data.title}</h3>
-      <hr class="curriculum-vita-separator" />
+      <curriculum-vita-separator title="${
+        data.title
+      }"></curriculum-vita-separator>
       <section name="entries">
         ${data.entries.map(renderSectionContent).join('')}
       </section>

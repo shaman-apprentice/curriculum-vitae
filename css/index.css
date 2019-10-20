@@ -24,6 +24,14 @@ p {
   margin: 0.25em;
 }
 
+curriculum-vita-separator {
+  color: rgb(49, 132, 155);
+}
+
+curriculum-vita-separator .h {
+  margin-bottom: 0;
+}
+
 /*
  * About me
  */
@@ -73,11 +81,6 @@ curriculum-vita-skills section {
 curriculum-vita-sections,
 curriculum-vita-section {
   display: block;
-}
-
-.curriculum-vita-separator {
-  margin-bottom: 0;
-  color: rgb(49, 132, 155);
 }
 
 curriculum-vita-section section[name='date'] {

@@ -10,11 +10,13 @@
     <link rel="stylesheet" type="text/css" href="./css/print.css" />
 
     <script type="module">
+      import { CurriculumVitaSeparator } from './src/separator.elem.js';
       import { CurriculumVitaAboutMe } from './src/about-me.elem.js';
       import { CurriculumVitaSkills } from './src/skills.elem.js';
       import { CurriculumVitaSections } from './src/sections.elem.js';
       import { CurriculumVitaSection } from './src/section.elem.js';
 
+      customElements.define('curriculum-vita-separator', CurriculumVitaSeparator);
       customElements.define('curriculum-vita-about-me', CurriculumVitaAboutMe);
       customElements.define('curriculum-vita-skills', CurriculumVitaSkills);
       customElements.define('curriculum-vita-sections', CurriculumVitaSections);
