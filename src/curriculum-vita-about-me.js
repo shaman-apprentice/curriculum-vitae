@@ -4,7 +4,7 @@ export class CurriculumVitaAboutMe extends BaseComponent {
   render(data) {
     this.innerHTML = `
       <section name="application-photo">
-        <img src="/assets/application_photo.jpg" />
+        <img src="./assets/application_photo.jpg" />
       </section>
       <section name="about-me">
         ${data.reduce((acc, { name, lines }) => {
