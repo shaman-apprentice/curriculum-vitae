@@ -9,9 +9,13 @@
     <link rel="stylesheet" type="text/css" href="/css/index-tablet.css" />
 
     <script type="module">
-      import {CurriculumVitaAboutMe } from '/src/curriculum-vita-about-me.js';
+      import { CurriculumVitaAboutMe } from '/src/curriculum-vita-about-me.js';
+      import { CurriculumVitaSections } from '/src/curriculum-vita-sections.js';
+      import { CurriculumVitaSection } from '/src/curriculum-vita-section.js';
 
       customElements.define('curriculum-vita-about-me', CurriculumVitaAboutMe);
+      customElements.define('curriculum-vita-sections', CurriculumVitaSections);
+      customElements.define('curriculum-vita-section', CurriculumVitaSection);
     </script>
     <script>
       window.curriculumVitaeData = {
@@ -30,8 +34,22 @@
           },
           {
             name: 'Geschwister',
-            lines: ['Stefan &nbsp;(1985)', 'Barbara (1987)', 'Cordula (1995)'], // TODO align brackets
+            lines: ['Stefan &nbsp;&nbsp;&nbsp;(1985)', 'Barbara (1987)', 'Cordula (1995)'],
           },
+        ],
+        sections: [
+          {
+            title: 'Berufserfahrung',
+            entries: [
+              {
+                date: '01.09.18 – 31.08.19',
+                title: 'Entwickler bei <a href="https://www.omikron.net/">Omikron Data Quality GmbH</a>',
+                description: 'Wartung einer Polymer 1 basierten frontend library \
+                  zur Integration der serverseitigen Produktsuche, \
+                  sowie das Upgraden auf zunächst Polymer 3 und anschließend auf Lit-Element.',
+              },
+            ],
+          }
         ],
       };
     </script>
@@ -44,6 +62,8 @@
       </section>
 
       <curriculum-vita-about-me data-src="curriculumVitaeData.aboutMe"></curriculum-vita-about-me>
+      
+      <curriculum-vita-sections data-src="curriculumVitaeData.sections"></curriculum-vita-section>
     </section>
   </body>
 </html>
