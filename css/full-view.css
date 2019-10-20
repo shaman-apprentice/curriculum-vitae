@@ -42,6 +42,15 @@
   }
 
   /*
+  * Skills
+  */
+  curriculum-vita-skills section[name='skill-entries'] {
+    display: grid;
+    justify-content: space-around;
+    grid-auto-flow: column;
+  }
+
+  /*
    * Sections
    */
   curriculum-vita-section section[name='entries'] {

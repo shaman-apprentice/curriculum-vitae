@@ -57,6 +57,17 @@ curriculum-vita-about-me section[name='about-me'] {
 }
 
 /*
+ * Skills
+ */
+curriculum-vita-skills {
+  display: block;
+}
+
+curriculum-vita-skills section {
+  text-align: center;
+}
+
+/*
  * Sections
  */
 curriculum-vita-sections,
@@ -64,13 +75,8 @@ curriculum-vita-section {
   display: block;
 }
 
-curriculum-vita-section h3 {
+.curriculum-vita-separator {
   margin-bottom: 0;
-  color: rgb(49, 132, 155);
-}
-
-curriculum-vita-section hr {
-  margin-top: 0;
   color: rgb(49, 132, 155);
 }
 
