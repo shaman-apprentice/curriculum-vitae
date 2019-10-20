@@ -14,10 +14,10 @@ export class CurriculumVitaSection extends BaseComponent {
 
 function renderSectionContent(entry) {
   return `
-    <section name="date">${entry.date}</section>
+    <section name="date">${entry.date || ''}</section>
     <section name="what">
       <h4>${entry.title}</h4>
-      <p>${entry.description}</p>
+      <p>${entry.description || ''}</p>
     </section> 
   `;
 }
