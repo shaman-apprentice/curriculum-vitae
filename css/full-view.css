@@ -47,7 +47,7 @@
   curriculum-vita-section section[name='entries'] {
     display: grid;
     justify-content: space-around;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: 1fr 3fr;
     column-gap: 16px;
   }
 
