@@ -59,6 +59,11 @@ curriculum-vita-about-me section[name='about-me'] {
 /*
  * Sections
  */
+curriculum-vita-sections,
+curriculum-vita-section {
+  display: block;
+}
+
 curriculum-vita-section h3 {
   margin-bottom: 0;
   color: rgb(49, 132, 155);
