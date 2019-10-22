@@ -104,3 +104,8 @@ curriculum-vita-section section[name='what'] p {
   padding-left: 1em;
   text-align: justify;
 }
+
+curriculum-vita-section span[name='final-grade'] {
+  font-weight: initial;
+  font-size: 0.85em;
+}

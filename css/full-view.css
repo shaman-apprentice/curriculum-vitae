@@ -1,7 +1,7 @@
 @media screen and (min-width: 210mm) {
   /* A4 is 210mm * 296mm sized */
   body {
-    background-color: lightseagreen;
+    background-color: black;
   }
 
   section[name='curriculum_vitae'] {
