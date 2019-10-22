@@ -16,9 +16,16 @@ export class CurriculumVitaSection extends BaseComponent {
 function renderSectionContent(entry) {
   return `
     <section name="date">${entry.date || ''}</section>
-    <section name="what">
+    <section name="what" ${
+      entry.hackyPageBreak ? getHackyPageBreak(entry.hackyPageBreak) : ''
+    }>
       <h4>${entry.title}</h4>
       <p>${entry.description || ''}</p>
     </section> 
   `;
+}
+
+/** see print.css for reasoning */
+function getHackyPageBreak(value) {
+  return `hacky-page-break style="--hacky-page-break: ${value};"`;
 }

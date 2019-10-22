@@ -26,10 +26,18 @@
     grid-template-columns: 2fr 1fr 1fr;
   }
 
-  curriculum-vita-section {
+  curriculum-vita-separator {
+    page-break-after: avoid;
+  }
+
+  /*
+  // The following does not work in combi with grid so far.
+  // Hence manual hack below for adjusting page breaks ``
+  curriculum-vita-section section[name='date'],
+  curriculum-vita-section section[name='what'] {
     page-break-inside: avoid;
-    /* HACK for adding "2cm margin-top after page break" */
-    padding-top: 2cm;
-    margin-top: -2cm;
+  } */
+  section[hacky-page-break] {
+    padding-bottom: var(--hacky-page-break);
   }
 }
