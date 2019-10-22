@@ -17,6 +17,10 @@
     color: inherit;
   }
 
+  a[print-href]::after {
+    content: ' (' attr(href) ')';
+  }
+
   curriculum-vita-about-me {
     grid-template-areas: 'about-me qr-code application-photo';
     grid-template-columns: 2fr 1fr 1fr;
