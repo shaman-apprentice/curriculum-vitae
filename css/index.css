@@ -52,6 +52,8 @@ curriculum-vita-about-me section[name='about-me'] {
   display: grid;
   justify-content: space-around;
   grid-template-columns: repeat(2, auto);
+  row-gap: 1em;
+  padding: 0.5em;
 }
 
 #application_photo {
