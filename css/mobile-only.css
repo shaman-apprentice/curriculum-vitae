@@ -1,0 +1,14 @@
+@media screen and (max-width: 639px) {
+  curriculum-vita-skills > section {
+    width: 75%;
+    margin: auto;
+  }
+
+  curriculum-vita-skills [name='skill-entries'] curriculum-vita-separator .h {
+    margin-top: 0.5em;
+  }
+
+  curriculum-vita-skills [name='skill-entries'] curriculum-vita-separator hr {
+    border-top: 1px dashed;
+  }
+}

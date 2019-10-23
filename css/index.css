@@ -16,8 +16,21 @@ section[name='heading_of_curriculum_vitae'] h2 {
   padding: 8px;
 }
 
+img[name='QR-code-to-webpage'] {
+  display: none;
+}
+
 p {
   margin: 0.25em;
+}
+
+curriculum-vita-separator {
+  display: block;
+  color: rgb(49, 132, 155);
+}
+
+curriculum-vita-separator .h {
+  margin-bottom: 0;
 }
 
 /*
@@ -39,6 +52,8 @@ curriculum-vita-about-me section[name='about-me'] {
   display: grid;
   justify-content: space-around;
   grid-template-columns: repeat(2, auto);
+  row-gap: 1em;
+  padding: 0.5em;
 }
 
 #application_photo {
@@ -53,16 +68,26 @@ curriculum-vita-about-me section[name='about-me'] {
 }
 
 /*
- * Sections
+ * Skills
  */
-curriculum-vita-section h3 {
-  margin-bottom: 0;
-  color: rgb(49, 132, 155);
+curriculum-vita-skills {
+  display: block;
 }
 
-curriculum-vita-section hr {
-  margin-top: 0;
-  color: rgb(49, 132, 155);
+curriculum-vita-skills section {
+  text-align: center;
+}
+
+curriculum-vita-skills [name='skill-entries'] curriculum-vita-separator .h {
+  margin-top: 0.25em;
+}
+
+/*
+ * Sections
+ */
+curriculum-vita-sections,
+curriculum-vita-section {
+  display: block;
 }
 
 curriculum-vita-section section[name='date'] {
@@ -78,4 +103,9 @@ curriculum-vita-section section[name='what'] h4 {
 curriculum-vita-section section[name='what'] p {
   padding-left: 1em;
   text-align: justify;
+}
+
+curriculum-vita-section span[name='final-grade'] {
+  font-weight: initial;
+  font-size: 0.85em;
 }

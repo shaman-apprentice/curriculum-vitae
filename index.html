@@ -7,13 +7,19 @@
     
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <link rel="stylesheet" type="text/css" href="./css/full-view.css" />
+    <link rel="stylesheet" type="text/css" href="./css/mobile-only.css" />
+    <link rel="stylesheet" type="text/css" href="./css/print.css" />
 
     <script type="module">
-      import { CurriculumVitaAboutMe } from './src/curriculum-vita-about-me.js';
-      import { CurriculumVitaSections } from './src/curriculum-vita-sections.js';
-      import { CurriculumVitaSection } from './src/curriculum-vita-section.js';
+      import { CurriculumVitaSeparator } from './src/separator.elem.js';
+      import { CurriculumVitaAboutMe } from './src/about-me.elem.js';
+      import { CurriculumVitaSkills } from './src/skills.elem.js';
+      import { CurriculumVitaSections } from './src/sections.elem.js';
+      import { CurriculumVitaSection } from './src/section.elem.js';
 
+      customElements.define('curriculum-vita-separator', CurriculumVitaSeparator);
       customElements.define('curriculum-vita-about-me', CurriculumVitaAboutMe);
+      customElements.define('curriculum-vita-skills', CurriculumVitaSkills);
       customElements.define('curriculum-vita-sections', CurriculumVitaSections);
       customElements.define('curriculum-vita-section', CurriculumVitaSection);
     </script>
@@ -22,39 +28,155 @@
         aboutMe: [
           {
             name: 'Wohnort',
-            lines: ['Hasselwerderstr. 32', '12439 Berlin'],
+            content: 'Hasselwerderstr. 32 <br /> 12439 Berlin',
           },
           {
             name: 'Kontakt',
-            lines: ['+49 151 / 502 515 84', 'Torsten.Knauf@gmx.de'],
+            content: '+49 151 / 502 515 84 <br /> Torsten.Knauf@gmx.de',
           },
           {
             name: 'Geboren',
-            lines: ['30.11.1989 in Köln'],
+            content: '30.11.1989 in Köln',
           },
           {
             name: 'Geschwister',
-            lines: ['Stefan &nbsp;&nbsp;&nbsp;(1985)', 'Barbara (1987)', 'Cordula (1995)'],
+            content: `
+              <table>
+                <tr><td>Stefan </td><td>(1985)</td></tr>  
+                <tr><td>Barbara</td><td>(1987)</td></tr>  
+                <tr><td>Cordula</td><td>(1995)</td></tr>  
+              </table>
+            `,
           },
         ],
+        skills: {
+          heading: '🚀 Skills',
+          entries: [
+            {
+              title: '🌍 Sprachen',
+              entries: ['Deutsch', 'Englisch'],
+            },
+            {
+              title: '💪 Gut',
+              entries: [
+                'Agile Methodiken',
+                'HTML, JavaScript, CSS',
+                'Node.js',
+                'Diverse Test Frameworks',
+                'Webpack',
+                'React',
+                'Neue Technologien lernen',
+              ],
+            },
+            {
+              title: '👌 Bereits mit gearbeitet',
+              entries: [
+              'TypeScript',
+              'Python',
+              'Android',
+              'Java',
+              'SQL',
+              'Octave',
+              'XSLT, XSD, RNG'
+              ],
+            },
+          ],
+        },
         sections: [
           {
-            title: 'Berufserfahrung',
+            title: '📈 Berufserfahrung',
             entries: [
               {
                 date: '01.09.18 – 31.08.19',
-                title: 'Entwickler bei <a href="https://www.omikron.net/">Omikron Data Quality GmbH</a>',
-                description: 'Wartung einer Polymer 1 basierten frontend library \
-                  zur Integration der serverseitigen Produktsuche, \
-                  sowie das Upgraden auf zunächst Polymer 3 und anschließend auf Lit-Element.',
+                title: 'Entwickler - <a href="https://www.omikron.net/">Omikron Data Quality GmbH</a>',
+                description: 'Wartung einer Polymer 1 basierten frontend library zur Integration der server-seitigen Shop-Engine, sowie das Upgraden auf Polymer 3 und Lit-Element',
               },
               {
                 date: '01.04.17 – 31.08.18',
-                title: 'Entwickler bei <a href="https://www.fastleansmart.com/">Fast Lean Smart</a>',
-                description: 'Entwicklung eines React basierten Clients fur Dispatcher aufbauend \
-                  auf einem Server, der Ressourcen in Echtzeit verplanen und optimieren kann',
+                title: 'Entwickler - <a href="https://www.fastleansmart.com/">Fast Lean Smart</a>',
+                description: 'Entwicklung eines React basierten Clients für Dispatcher aufbauend auf einem Server, der Ressourcen in Echtzeit verplanen und optimieren kann',
+              },
+              {
+                date: '01.08.16 – 31.10.16',
+                title: 'Studentische Hilfskraft - <a href="https://www.uni-kiel.de/de/">CAU</a>',
+                description: 'Web-Entwickler in einem Forschungsprojekt zur Aufarbeitung Kieler Bombenopfer im 2. Weltkrieg',
+              },
+              {
+                date: '15.08.13 – 30.06.14',
+                title: 'Studentische Hilfskraft - <a href="https://www.fit.fraunhofer.de/">Fraunhofer FIT</a>',
+                description: 'Studentische Hilfskraft inklusive Bachelor Arbeit "Refak&shy;torisierung eines Smartphone-basierten Content Management Systems"',
+              },
+              {
+                date: '02.01.13 – 31.03.13',
+                title: 'Praktikum - <a href="https://www.dataport.de/Seiten/Startseite.aspx">Dataport Altenholz</a>',
+                description: 'Automatisierung von Softwareentwicklungsprozessen in der Ab&shy;teilung E-Government Basislösungen',
+                hackyPageBreak: '3cm',
+              },
+              {
+                date: '01.10.09 – 31.07.10',
+                title: 'Zivildienst - <a href="https://caritas.erzbistum-koeln.de/rheinsieg-cv/">Caritasverband Rhein-Sieg e.V</a>',
+                description: 'Im Bereich der Altersbetreuung und auf Minijob Basis um einen Monat verlängert',
               },
             ],
+          },
+          {
+            title: '🎓 Ausbildung',
+            entries: [
+              {
+                date: '01.10.14 – 31.03.17',
+                title: 'Master Informatik <span name="final-grade">(∅ 1.4)</span>',
+                description: 'An der Christian-Albrechts Universität zu Kiel mit Anwendungs&shy;fach Mathematik (<a print-href href="https://shaman-apprentice.github.io/MyMasterThesis/">Link zur Master Arbeit</a>)',
+              },
+              {
+                date: '01.09.10 – 31.08.14',
+                title: 'Bachelor Informatik <span name="final-grade">(∅ 1.6)</span>',
+                description: 'An der Hochschule Bonn Rhein-Sieg mit Spezialisierung Komplexe Software&shy;systeme',
+              },
+              {
+                date: '01.10.14 – 31.03.17',
+                title: 'Abitur <span name="final-grade">(∅ 2.0)</span>',
+                description: 'Am Rhein-Sieg-Gymnasium',
+              },
+            ],
+          },
+          {
+            title: '⛹ Hobbys',
+            entries: [
+              {
+                title: 'Tischtennis',
+                description: '2. Mannschaft in der Kreisliga beim BSV A. d. Wissenschaften'
+              },
+              { title: 'Go' },
+              { title: 'Fußball' },
+            ]
+          },
+          {
+            title: '👑 Sonstiges',
+            entries: [
+              {
+                title: '<a print-href href="https://github.com/shaman-apprentice">Mein GitHub Account</a>'
+              },
+              {
+                date: '2011/12/14/15/16',
+                title: 'Deutscher Paar-Go-Meister',
+              },
+              {
+                date: '2011/12 & 2012/13',
+                title: 'Deutschlandstipendium',
+              },
+              {
+                date: '2009 – 2011',
+                title: 'Kassenprufer beim Go-Verband-NRW',
+              },
+              {
+                date: '2007',
+                title: 'Deutscher Jugend-Go-Meister',
+              },
+              {
+                date: '2006 – 2007',
+                title: 'Sportbeisitzer der Schülervertretung',
+              },
+            ]
           }
         ],
       };
@@ -69,7 +191,9 @@
 
       <curriculum-vita-about-me data-src="curriculumVitaeData.aboutMe"></curriculum-vita-about-me>
       
-      <curriculum-vita-sections data-src="curriculumVitaeData.sections"></curriculum-vita-section>
+      <curriculum-vita-skills data-src="curriculumVitaeData.skills"></curriculum-vita-skills>
+
+      <curriculum-vita-sections data-src="curriculumVitaeData.sections"></curriculum-vita-sections>
     </section>
   </body>
 </html>
