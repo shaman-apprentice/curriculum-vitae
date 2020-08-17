@@ -4,7 +4,7 @@
 
 section[name='curriculum_vitae'] {
   min-width: 300px;
-  padding: 16px;
+  padding: 8px;
 }
 
 section[name='heading_of_curriculum_vitae'] {
@@ -51,6 +51,7 @@ curriculum-vita-about-me section[name='application-photo'] img {
 curriculum-vita-about-me section[name='about-me'] {
   display: grid;
   justify-content: space-around;
+  line-break: anywhere;
   grid-template-columns: repeat(2, auto);
   row-gap: 1em;
   padding: 0.5em;
