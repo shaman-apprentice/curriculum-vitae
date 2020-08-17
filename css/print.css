@@ -12,6 +12,10 @@
     width: 75%;
   }
 
+  curriculum-vita-about-me section[name='application-photo'] img {
+    max-height: 100%;
+  }
+
   a {
     text-decoration: inherit;
     color: inherit;
