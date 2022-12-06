@@ -1,10 +1,185 @@
 <!DOCTYPE html>
   <head>
-    <title>index</title>
+    <title>Torsten Knauf &#128077;</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="css/browserReset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+
+    <script type="module">
+      import { ApplicationPhotoComponent } from "/src/applicationPhoto.component.js";
+      import { ContentSectionComponent } from "/src/contentSection.component.js";
+      import { ContentEntryComponent } from "/src/contentEntry.component.js";
+      
+      customElements.define("cv-application-photo", ApplicationPhotoComponent);
+      customElements.define("cv-content-section", ContentSectionComponent);
+      customElements.define("cv-content-entry", ContentEntryComponent);
+    </script>
   </head>
 
-  <body></body>
+  <body>
+    <h1>Lebenslauf <span class="showAbove425px">-</span> <br class="breakBelow425px">Torsten Knauf</h1>
+
+    <cv-application-photo></cv-application-photo>
+
+    <h2>Persönliche Daten</h2>
+    <p>Tel.: 0151 / 544 225 62</p>
+    <p>Email: Torsten.Knauf@gmx.de</p>
+    <p>Adr.: Hasselwerderstr. 32, 12439 Berlin</p>
+    <p>Gebr.: 30.11.1989 in Köln</p>
+
+    <h2>Main Skills</h2>
+    <ul>
+      <li>Fullstack JavaScript Developer</li>
+      <li>Agile Methodiken</li>
+      <li>Neue Herausforderungen meistern</li>
+    </ul>
+
+    <h2>Bereits mit gearbeitet</h2>
+    <ul>
+      <li>React, Angular, AngularJS, Polymer 1 & 3, LitElement</li>
+      <li>NestJS, fastify, Express JS, Java, Python</li>
+      <li>Docker, Azure, AWS</li>
+      <li>Android, Expo JS</li>
+    </ul>
+
+    <h2>Sprachen</h2>
+    <ul>
+      <li>Deutsch</li>
+      <li>Englisch</li>
+    </ul>
+
+    <cv-content-section>
+      <h2 slot="title">📈 Berufserfahrung</h2>
+      <section slot="entries">
+        <cv-content-entry>
+          <h3 slot="date">01.09.19 – </h3>
+          <h3 slot="header">Senior Entwickler - <a href="https://www.maibornwolff.de/">MaibornWolff</a></h3>
+          <p slot="description">...</p>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">01.09.18 – 31.08.19</h3>
+          <h3 slot="header">Entwickler - <a href="https://www.omikron.net/">Omikron Data Quality GmbH</a></h3>
+          <p slot="description">Wartung einer Polymer 1 basierten frontend library zur Integration der server-seitigen Shop-Engine, sowie das Upgraden auf Polymer 3 und Lit-Element</p>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">01.04.17 – 31.08.18</h3>
+          <h3 slot="header">Entwickler - <a href="https://www.fastleansmart.com">Fast Lean Smart</a></h3>
+          <p slot="description">Entwicklung eines React basierten Clients für Dispatcher aufbauend auf einem Server, der Ressourcen in Echtzeit verplanen und optimieren kann</p>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">01.08.16 – 31.10.16</h3>
+          <h3 slot="header">Studentische Hilfskraft  - <a href="https://www.uni-kiel.de/de/">CAU</a></h3>
+          <p slot="description">Web-Entwickler in einem Forschungsprojekt welches historische Dokumente und Statistiken digital aufarbeitet</p>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">15.08.13 – 30.06.14</h3>
+          <h3 slot="header">Studentische Hilfskraft  - <a href="https://www.fit.fraunhofer.de/">Fraunhofer FIT</a></h3>
+          <p slot="description">Studentische Hilfskraft inklusive Bachelor Arbeit "Refaktorisierung eines Smartphone-basierten Content Management Systems</p>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">02.01.13 – 31.03.13</h3>
+          <h3 slot="header">Praktikum - <a href="https://www.dataport.de/">Dataport Altenholz</a></h3>
+          <p slot="description">Automatisierung von Softwareentwicklungsprozessen in der Abteilung E-Government Basislösungen</p>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">01.10.09 – 31.07.10</h3>
+          <h3 slot="header">Zivildienst - <a href="https://www.caritas-rheinsieg.de/">Caritasverband Rhein-Sieg e.V</a></h3>
+          <p slot="description">Im Bereich der Altersbetreuung und auf Minijob Basis um einen Monat verlängert</p>
+        </cv-content-entry>
+      </section>
+    </cv-content-section>
+
+    <cv-content-section>
+      <h2 slot="title">🎓 Ausbildung</h2>
+      <section slot="entries">
+        <cv-content-entry>
+          <h3 slot="date">01.10.14 – 31.03.17</h3>
+          <h3 slot="header">Master Informatik (∅ 1.4)</h3>
+          <p slot="description">An der Christian-Albrechts Universität zu Kiel mit Anwendungs­fach Mathematik <a href="https://shaman-apprentice.github.io/MyMasterThesis/">(Link zur Master Arbeit)</a></p>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">01.10.09 – 31.07.10</h3>
+          <h3 slot="header">Bachelor Informatik (∅ 1.6)</a></h3>
+          <p slot="description">An der Hochschule Bonn Rhein-Sieg mit Spezialisierung Komplexe Software­systeme</p>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">2009</h3>
+          <h3 slot="header">Abitur (∅ 2.0)</h3>
+          <p slot="description">Am Rhein-Sieg-Gymnasium</p>
+        </cv-content-entry>
+      </section>
+    </cv-content-section>
+
+    <cv-content-section>
+      <h2 slot="title">⛹ Hobbys</h2>
+      <section slot="entries">
+        <cv-content-entry>
+          <h3 slot="header">Tischtennis</h3>
+          <p slot="description">1. Mannschaft in der Bezirksliga beim BSV A. d. Wissenschaften</a></p>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="header">Go</a></h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="header">Fußball</h3>
+        </cv-content-entry>
+      </section>
+    </cv-content-section>
+
+    <cv-content-section>
+      <h2 slot="title">👑 Sonstiges</h2>
+      <section slot="entries">
+        <cv-content-entry>
+          <h3 slot="header"><a href="https://github.com/shaman-apprentice">Mein GitHub Account</a></h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">02.12.2022</h3>
+          <h3 slot="header">Betriebliche Brandschutzhelfer Ausbildung</h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">01.09.2021 – 01.11.2022</h3>
+          <h3 slot="header">Migration des Open Source Tools <a href="https://github.com/MaibornWolff/codecharta">CodeCharta</a> von AngularJS auf Angular</h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">13.02.2021</h3>
+          <h3 slot="header">Node.js Application Developer Certificate</h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">26.05.2020</h3>
+          <h3 slot="header">AZ-203: Microsoft Azure Developer Associate Certifiacte</h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">10.04.2020</h3>
+          <h3 slot="header">AZ-900: Microsoft Azure Fundamentals Certificate</h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">20.01.2020</h3>
+          <h3 slot="header">Betriebliche Ersthelfer Ausbildung</h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">2011/12/14/15/16</h3>
+          <h3 slot="header">Deutscher Paar-Go-Meister</h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">2011/12 & 2012/13</h3>
+          <h3 slot="header">Deutschlandstipendium</h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">2009 – 2011</h3>
+          <h3 slot="header">Kassenprüfer beim Go-Verband-NRW</h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">2007</h3>
+          <h3 slot="header">Deutscher Jugend-Go-Meister</h3>
+        </cv-content-entry>
+        <cv-content-entry>
+          <h3 slot="date">2006 – 2007</h3>
+          <h3 slot="header">Sportbeisitzer der Schülervertretung</h3>
+        </cv-content-entry>
+      </section>
+    </cv-content-section>
+  </body>
 </html>
