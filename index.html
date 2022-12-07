@@ -7,7 +7,8 @@
 
     <link rel="stylesheet" type="text/css" href="css/browserReset.css"/>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
-    <link rel="stylesheet" type="text/css" media="screen and (min-width:640px)" href="css/styles.desktop.css"/>
+    <link rel="stylesheet" type="text/css" media="(min-width:640px), print" href="css/styles.desktop.css"/>
+    <link rel="stylesheet" type="text/css" media="print" href="css/styles.print.css"/>
 
     <script type="module">
       import { ApplicationPhotoComponent } from "/src/applicationPhoto.component.js";
@@ -27,6 +28,11 @@
       <section class="contentContainer">
         <section class="contentFirstColumn">
           <cv-application-photo></cv-application-photo>
+
+          <section class="printOnly qrCode">
+            <img src="/assets/QRCodeToWebPage.svg" alt="QR-Code zur Web Version des Lebenslaufes"/>
+            <p>QR-Code zur Web Version des Lebenslaufes</p>
+          </section>
 
           <h2>Persönliche Daten</h2>
           <p>Tel.: 0151 / 544 225 62</p>
@@ -63,7 +69,7 @@
               <cv-content-entry>
                 <h3 slot="date">01.09.19 – aktuell</h3>
                 <h3 slot="header">Senior Entwickler - <a href="https://www.maibornwolff.de/">MaibornWolff</a></h3>
-                <p slot="description">Fullstack Developer in </p>
+                <p slot="description">Fullstack Developer in 5 agilen Projekten für 4 unterschiedliche Kunden mit unterschiedlichen Tech Stacks</p>
               </cv-content-entry>
               <cv-content-entry>
                 <h3 slot="date">01.09.18 – 31.08.19</h3>
@@ -107,7 +113,7 @@
                 <p slot="description">An der Christian-Albrechts Universität zu Kiel mit Anwendungs­fach Mathematik (<a href="https://shaman-apprentice.github.io/MyMasterThesis/">Link zur Master Arbeit</a>)</p>
               </cv-content-entry>
               <cv-content-entry>
-                <h3 slot="date">01.10.09 – 31.07.10</h3>
+                <h3 slot="date">01.09.10 – 31.08.14</h3>
                 <h3 slot="header">Bachelor Informatik (∅ 1.6)</a></h3>
                 <p slot="description">An der Hochschule Bonn Rhein-Sieg mit Spezialisierung Komplexe Software­systeme</p>
               </cv-content-entry>
@@ -140,6 +146,7 @@
             <section slot="entries">
               <cv-content-entry>
                 <h3 slot="header"><a href="https://github.com/shaman-apprentice">Mein GitHub Account</a></h3>
+                <p class="printOnly" slot="description">https://github.com/shaman-apprentice</p>
               </cv-content-entry>
               <cv-content-entry>
                 <h3 slot="date">02.12.22</h3>
