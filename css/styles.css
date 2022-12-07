@@ -16,6 +16,9 @@ h1 {
     display: none;
   }
 }
+h2 {
+  border-bottom: 2px solid rgb(191, 238, 247);
+}
 h3 {
   margin: 0;
 }
