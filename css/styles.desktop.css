@@ -1,0 +1,57 @@
+body {
+  background-color: black;
+}
+
+.pageContainer {
+  max-width: 210mm; /* A4 is 210mm * 296mm sized */
+  margin: auto;
+  padding: 8px;
+  background-color: white;
+}
+
+.contentContainer {
+  display: flex;
+}
+
+cv-application-photo {
+  display: block;
+}
+/* align with first header from second column */
+cv-application-photo button {
+  margin-top: 8px; 
+  margin-bottom: 8px;
+}
+
+h2 {
+  text-align: left;
+  border-bottom: none;
+}
+
+.contentSecondColumn {
+  margin-left: 8px;
+}
+
+.contentSecondColumn section[slot="entries"] {
+  margin-left: 10px;
+  border-left: 4px solid rgb(191, 238, 247);
+}
+
+cv-content-entry {
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto auto;
+}
+cv-content-entry::part(date) {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: span 2;
+}
+cv-content-entry::part(header) {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+cv-content-entry::part(description) {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}

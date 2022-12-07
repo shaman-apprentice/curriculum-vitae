@@ -1,9 +1,9 @@
 /**
  * <button>
- *   <div>(Zeige Photo | Minimiere Photo)</div>
- *   <div class="icon">(↧ | ↥)</div>
+ *   <div>(Minimiere Foto | Zeige Foto)</div>
+ *   <div class="icon">(↥ | ↧)</div>
  * </button>
- * <img class="hidePhoto" src="/assets/applicationPhoto.jpg"/>
+ * <img src="/assets/applicationPhoto.jpg"/>
  */
 export class ApplicationPhotoComponent extends HTMLElement {
   constructor() {
@@ -16,27 +16,26 @@ export class ApplicationPhotoComponent extends HTMLElement {
 
     const img = document.createElement("img");
     img.src = "/assets/applicationPhoto.jpg";
-    img.classList.add("hidePhoto");
 
     const showPhotoButton = document.createElement("button");
 
     const showPhotoButtonTextSpan = document.createElement("div");
-    showPhotoButtonTextSpan.textContent = "Zeige Photo";
+    showPhotoButtonTextSpan.textContent = "Minimiere Foto";
     showPhotoButton.appendChild(showPhotoButtonTextSpan);
 
     const showPhotoButtonIcon = document.createElement("div");
-    showPhotoButtonIcon.textContent =  "↧";
+    showPhotoButtonIcon.textContent =  "↥";
     showPhotoButtonIcon.className = "icon"
     showPhotoButton.appendChild(showPhotoButtonIcon);
 
     showPhotoButton.onclick = () => {
       const isPhotoCurrentlyHidden = img.classList.contains("hidePhoto"); 
       if (isPhotoCurrentlyHidden) {
-        showPhotoButtonTextSpan.textContent = "Minimiere Photo";
+        showPhotoButtonTextSpan.textContent = "Minimiere Foto";
         showPhotoButtonIcon.textContent = "↥";
         img.classList.remove("hidePhoto");
       } else {
-        showPhotoButtonTextSpan.textContent = "Zeige Photo";
+        showPhotoButtonTextSpan.textContent = "Zeige Foto";
         showPhotoButtonIcon.textContent = "↧";
         img.classList.add("hidePhoto");
       }

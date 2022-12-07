@@ -1,12 +1,12 @@
 const componentTemplate = document.createElement("template");
 componentTemplate.innerHTML = `
-  <section class="date">
+  <section part="date">
     <slot name="date"></slot>
   </section>
-  <section class="header">
+  <section part="header">
     <slot name="header">HEADER</slot>
   </section>
-  <section class="description">
+  <section part="description">
     <slot name="description"></slot>
   </section>
 `;
