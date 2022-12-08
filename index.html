@@ -18,6 +18,11 @@
       customElements.define("cv-application-photo", ApplicationPhotoComponent);
       customElements.define("cv-content-section", ContentSectionComponent);
       customElements.define("cv-content-entry", ContentEntryComponent);
+
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service.worker.js")
+          .catch(console.error);
+      }
     </script>
   </head>
 
