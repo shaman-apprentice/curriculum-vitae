@@ -2,7 +2,6 @@ const cacheName = "TorstenKnaufV1";
 const pathnamesToCache = [
   "/",
   "/index.html",
-  "/assets/appIcon.png",
   "/assets/applicationPhoto.jpg",
   "/assets/favicon.ico",
   "/assets/QRCodeToWebPage.svg",

@@ -1,0 +1,23 @@
+{
+  "name": "Lebenslauf Torsten Knauf 👍",
+  "short_name": "TK",
+  "description": "Lebenslauf von Torsten Knauf",
+  "icons": [
+    {
+      "src": "assets/appIcon.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "assets/splashScreen.png",
+      "type": "image/png",
+      "sizes": "640x640"
+    }
+  ],
+  "categories": ["business"],
+  "background_color": "white",
+  "theme_color": "black",
+  "start_url": "/?version=1",
+  "display": "standalone",
+  "id": "Torsten Knauf"
+}
