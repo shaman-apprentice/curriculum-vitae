@@ -6,25 +6,26 @@
     <meta name="description" content="Lebenslauf von Torsten Knauf" />
     <meta name="theme-color" content="black" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="manifest" href="/app.webmanifest" />
+    <link rel="manifest" href="./app.webmanifest" />
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
 
-    <link rel="stylesheet" type="text/css" href="css/browserReset.css" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <link rel="stylesheet" type="text/css" media="(min-width:640px), print" href="css/styles.desktop.css" />
-    <link rel="stylesheet" type="text/css" media="print" href="css/styles.print.css" />
+    <link rel="stylesheet" type="text/css" href="./css/browserReset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" media="(min-width:640px), print" href="./css/styles.desktop.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="./css/styles.print.css" />
 
     <script type="module">
-      import { ApplicationPhotoComponent } from "/src/applicationPhoto.component.js";
-      import { ContentSectionComponent } from "/src/contentSection.component.js";
-      import { ContentEntryComponent } from "/src/contentEntry.component.js";
+      import { ApplicationPhotoComponent } from "./src/applicationPhoto.component.js";
+      import { ContentSectionComponent } from "./src/contentSection.component.js";
+      import { ContentEntryComponent } from "./src/contentEntry.component.js";
       
       customElements.define("cv-application-photo", ApplicationPhotoComponent);
       customElements.define("cv-content-section", ContentSectionComponent);
       customElements.define("cv-content-entry", ContentEntryComponent);
 
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/service.worker.js")
+        const scope = window.location.host.includes("github.io") ? "/curriculum-vitae/" : "/";
+        navigator.serviceWorker.register("./service.worker.js", { scope })
           .catch(console.error);
       }
     </script>
@@ -39,7 +40,7 @@
           <cv-application-photo></cv-application-photo>
 
           <section class="printOnly qrCode">
-            <img src="/assets/QRCodeToWebPage.svg" alt="QR-Code zur Web Version des Lebenslaufes"/>
+            <img src="./assets/QRCodeToWebPage.svg" alt="QR-Code zur Web Version des Lebenslaufes"/>
             <p>QR-Code zur Web Version des Lebenslaufes</p>
           </section>
 

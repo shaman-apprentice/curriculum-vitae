@@ -15,7 +15,7 @@ export class ApplicationPhotoComponent extends HTMLElement {
     }
 
     const img = document.createElement("img");
-    img.src = "/assets/applicationPhoto.jpg";
+    img.src = "./assets/applicationPhoto.jpg";
     img.alt = "Foto von Torsten Knauf";
 
     const showPhotoButton = document.createElement("button");

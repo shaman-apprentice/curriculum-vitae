@@ -15,8 +15,13 @@ const pathnamesToCache = [
 ];
 
 self.addEventListener("install", event => {
+  const urlOfSelf = event.target.serviceWorker.scriptURL;
+  const isOnGitHubPages = urlOfSelf.includes("github.io");
+  const servedPathnamesToCache = isOnGitHubPages
+    ? ["/curriculum-vitae", ...pathnamesToCache.map(p => "/curriculum-vitae" + p)]
+    : pathnamesToCache;
   event.waitUntil(
-    caches.open(cacheName).then(cache => cache.addAll(pathnamesToCache))
+    caches.open(cacheName).then(cache => cache.addAll(servedPathnamesToCache))
   );
 });
 
