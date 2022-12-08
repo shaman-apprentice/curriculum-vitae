@@ -1,0 +1,59 @@
+h1, h2 {
+  text-align: center;
+  color: rgb(49, 132, 155);
+  margin: 8px 0;
+}
+h1 {
+  background-color: rgb(191, 238, 247);
+}
+@media (min-width: 425px) {
+  h1 br.breakBelow425px {
+    display: none;
+  }
+} 
+@media (max-width: 424px) {
+  h1 span.showAbove425px {
+    display: none;
+  }
+}
+h2 {
+  border-bottom: 2px solid rgb(191, 238, 247);
+}
+h3 {
+  margin: 0;
+  color: rgb(10, 20, 36);
+}
+p {
+  margin: 4px 8px;
+}
+
+.printOnly {
+  display: none;
+}
+
+cv-application-photo button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  border: 2px solid rgb(49, 132, 155);
+  background-color: rgb(191, 238, 247);
+}
+cv-application-photo button .icon {
+  font-weight: bold;
+}
+cv-application-photo img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  max-height: 360px;
+  transition: max-height 1.5s ease-in-out;
+}
+cv-application-photo img.hidePhoto {
+  max-height: 0;
+}
+
+cv-content-entry {
+  display: block;
+  margin: 8px;
+}

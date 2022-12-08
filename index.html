@@ -1,222 +1,223 @@
 <!DOCTYPE html>
+<html lang="de">
   <head>
     <title>Torsten Knauf &#128077;</title>
-    <link rel='shortcut icon' type='image/x-icon' href='./assets/favicon.ico' />
     <meta charset="utf-8" />
+    <meta name="description" content="Lebenslauf von Torsten Knauf" />
+    <meta name="theme-color" content="black" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <link rel="stylesheet" type="text/css" href="./css/index.css" />
-    <link rel="stylesheet" type="text/css" href="./css/full-view.css" />
-    <link rel="stylesheet" type="text/css" href="./css/mobile-only.css" />
-    <link rel="stylesheet" type="text/css" href="./css/print.css" />
+    <link rel="manifest" href="/app.webmanifest" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="css/browserReset.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" media="(min-width:640px), print" href="css/styles.desktop.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="css/styles.print.css" />
 
     <script type="module">
-      import { CurriculumVitaSeparator } from './src/separator.elem.js';
-      import { CurriculumVitaAboutMe } from './src/about-me.elem.js';
-      import { CurriculumVitaSkills } from './src/skills.elem.js';
-      import { CurriculumVitaSections } from './src/sections.elem.js';
-      import { CurriculumVitaSection } from './src/section.elem.js';
+      import { ApplicationPhotoComponent } from "/src/applicationPhoto.component.js";
+      import { ContentSectionComponent } from "/src/contentSection.component.js";
+      import { ContentEntryComponent } from "/src/contentEntry.component.js";
+      
+      customElements.define("cv-application-photo", ApplicationPhotoComponent);
+      customElements.define("cv-content-section", ContentSectionComponent);
+      customElements.define("cv-content-entry", ContentEntryComponent);
 
-      customElements.define('curriculum-vita-separator', CurriculumVitaSeparator);
-      customElements.define('curriculum-vita-about-me', CurriculumVitaAboutMe);
-      customElements.define('curriculum-vita-skills', CurriculumVitaSkills);
-      customElements.define('curriculum-vita-sections', CurriculumVitaSections);
-      customElements.define('curriculum-vita-section', CurriculumVitaSection);
-    </script>
-    <script>
-      window.curriculumVitaeData = {
-        aboutMe: [
-          {
-            name: 'Wohnort',
-            content: 'Hasselwerderstr. 32 <br /> 12439 Berlin',
-          },
-          {
-            name: 'Kontakt',
-            content: '+49 151 / 502 515 84 <br /> Torsten.Knauf@gmx.de',
-          },
-          {
-            name: 'Geboren',
-            content: '30.11.1989 in Köln',
-          },
-          {
-            name: 'Geschwister',
-            content: `
-              <table>
-                <tr><td>Stefan </td><td>(1985)</td></tr>  
-                <tr><td>Barbara</td><td>(1987)</td></tr>  
-                <tr><td>Cordula</td><td>(1995)</td></tr>  
-              </table>
-            `,
-          },
-        ],
-        skills: {
-          heading: '🚀 Skills',
-          entries: [
-            {
-              title: '🌍 Sprachen',
-              entries: ['Deutsch', 'Englisch'],
-            },
-            {
-              title: '💪 Gut',
-              entries: [
-                'Agile Methodiken',
-                'HTML, JavaScript / TypeScript, CSS',
-                'Node.js',
-                'Diverse Test Frameworks',
-                'Webpack',
-                'React',
-                'Neue Technologien lernen',
-              ],
-            },
-            {
-              title: '👌 Bereits mit gearbeitet',
-              entries: [
-              'Azure',
-              'Polymer 1 & 3, Lit-Element',
-              'AngularJS, Angular',
-              'ELK-Stack',
-              'Docker',
-              'Python, Android, Java',
-              'SQL',
-              'Octave',
-              'XSLT, XSD, RNG'
-              ],
-            },
-          ],
-        },
-        sections: [
-          {
-            title: '📈 Berufserfahrung',
-            entries: [
-              {
-                date: '01.09.19 – ',
-                title: 'Senior Entwickler - <a href="https://www.maibornwolff.de/">MaibornWolff</a>',
-                description: '...',
-              },
-              {
-                date: '01.09.18 – 31.08.19',
-                title: 'Entwickler - <a href="https://www.omikron.net/">Omikron Data Quality GmbH</a>',
-                description: 'Wartung einer Polymer 1 basierten frontend library zur Integration der server-seitigen Shop-Engine, sowie das Upgraden auf Polymer 3 und Lit-Element',
-              },
-              {
-                date: '01.04.17 – 31.08.18',
-                title: 'Entwickler - <a href="https://www.fastleansmart.com/">Fast Lean Smart</a>',
-                description: 'Entwicklung eines React basierten Clients für Dispatcher aufbauend auf einem Server, der Ressourcen in Echtzeit verplanen und optimieren kann',
-              },
-              {
-                date: '01.08.16 – 31.10.16',
-                title: 'Studentische Hilfskraft - <a href="https://www.uni-kiel.de/de/">CAU</a>',
-                description: 'Web-Entwickler in einem Forschungsprojekt welches historische Dokumente und Statistiken digital aufarbeitet',
-              },
-              {
-                date: '15.08.13 – 30.06.14',
-                title: 'Studentische Hilfskraft - <a href="https://www.fit.fraunhofer.de/">Fraunhofer FIT</a>',
-                description: 'Studentische Hilfskraft inklusive Bachelor Arbeit "Refak&shy;torisierung eines Smartphone-basierten Content Management Systems"',
-                hackyPageBreak: '2cm',
-              },
-              {
-                date: '02.01.13 – 31.03.13',
-                title: 'Praktikum - <a href="https://www.dataport.de/Seiten/Startseite.aspx">Dataport Altenholz</a>',
-                description: 'Automatisierung von Softwareentwicklungsprozessen in der Ab&shy;teilung E-Government Basislösungen',
-              },
-              {
-                date: '01.10.09 – 31.07.10',
-                title: 'Zivildienst - <a href="https://caritas.erzbistum-koeln.de/rheinsieg-cv/">Caritasverband Rhein-Sieg e.V</a>',
-                description: 'Im Bereich der Altersbetreuung und auf Minijob Basis um einen Monat verlängert',
-              },
-            ],
-          },
-          {
-            title: '🎓 Ausbildung',
-            entries: [
-              {
-                date: '01.10.14 – 31.03.17',
-                title: 'Master Informatik <span name="final-grade">(∅ 1.4)</span>',
-                description: 'An der Christian-Albrechts Universität zu Kiel mit Anwendungs&shy;fach Mathematik (<a print-href href="https://shaman-apprentice.github.io/MyMasterThesis/">Link zur Master Arbeit</a>)',
-              },
-              {
-                date: '01.09.10 – 31.08.14',
-                title: 'Bachelor Informatik <span name="final-grade">(∅ 1.6)</span>',
-                description: 'An der Hochschule Bonn Rhein-Sieg mit Spezialisierung Komplexe Software&shy;systeme',
-              },
-              {
-                date: '2009',
-                title: 'Abitur <span name="final-grade">(∅ 2.0)</span>',
-                description: 'Am Rhein-Sieg-Gymnasium',
-              },
-            ],
-          },
-          {
-            title: '⛹ Hobbys',
-            entries: [
-              {
-                title: 'Tischtennis',
-                description: '1. Mannschaft in der Bezirksklasse beim BSV A. d. Wissenschaften'
-              },
-              { title: 'Go' },
-              { title: 'Fußball' },
-            ]
-          },
-          {
-            title: '👑 Sonstiges',
-            entries: [
-              {
-                title: '<a print-href href="https://github.com/shaman-apprentice">Mein GitHub Account</a>'
-              },
-              {
-                date: '13.02.2021',
-                title: 'Node.js Application Developer Certificate',
-              },
-              {
-                date: '26.05.2020',
-                title: 'AZ-203: Microsoft Azure Developer Associate Certifiacte',
-              },
-              {
-                date: '10.04.2020',
-                title: 'AZ-900: Microsoft Azure Fundamentals Certificate',
-              },
-              {
-                date: '20.01.2020',
-                title: 'Betriebliche Ersthelfer Ausbildung',
-              },
-              {
-                date: '2011/12/14/15/16',
-                title: 'Deutscher Paar-Go-Meister',
-              },
-              {
-                date: '2011/12 & 2012/13',
-                title: 'Deutschlandstipendium',
-              },
-              {
-                date: '2009 – 2011',
-                title: 'Kassenprüfer beim Go-Verband-NRW',
-              },
-              {
-                date: '2007',
-                title: 'Deutscher Jugend-Go-Meister',
-              },
-              {
-                date: '2006 – 2007',
-                title: 'Sportbeisitzer der Schülervertretung',
-              },
-            ]
-          }
-        ],
-      };
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service.worker.js")
+          .catch(console.error);
+      }
     </script>
   </head>
 
   <body>
-    <section name='curriculum_vitae'>
-      <section name="heading_of_curriculum_vitae">
-        <h2>Lebenslauf - Torsten Knauf</h2>
-      </section>
+    <section class="pageContainer">
+      <h1>Lebenslauf <span class="showAbove425px">-</span> <br class="breakBelow425px">Torsten Knauf</h1>
 
-      <curriculum-vita-about-me data-src="curriculumVitaeData.aboutMe"></curriculum-vita-about-me>
+      <section class="contentContainer">
+        <section class="contentFirstColumn">
+          <cv-application-photo></cv-application-photo>
+
+          <section class="printOnly qrCode">
+            <img src="/assets/QRCodeToWebPage.svg" alt="QR-Code zur Web Version des Lebenslaufes"/>
+            <p>QR-Code zur Web Version des Lebenslaufes</p>
+          </section>
+
+          <h2>Persönliche Daten</h2>
+          <p>Tel.: 0151 / 544 225 62</p>
+          <p>Email: Torsten.Knauf@gmx.de</p>
+          <p>Adr.: Hasselwerderstr. 32, 12439 Berlin</p>
+          <p>Gebr.: 30.11.1989 in Köln</p>
       
-      <curriculum-vita-skills data-src="curriculumVitaeData.skills"></curriculum-vita-skills>
+          <h2>Main Skills</h2>
+          <ul>
+            <li>Fullstack JavaScript Developer</li>
+            <li>Agile Methodiken</li>
+            <li>Neue Herausforderungen meistern</li>
+          </ul>
+      
+          <h2>Bereits mit gearbeitet</h2>
+          <ul>
+            <li>Frontend: React, Angular, AngularJS, Polymer 1 & 3, LitElement</li>
+            <li>Backend: NestJS, fastify, Express JS, Java, Python</li>
+            <li>DevOps: GitLab pipelines, GitHub Actions, Docker, Azure, AWS</li>
+            <li>Mobile: Android, Expo JS</li>
+          </ul>
+      
+          <h2>Sprachen</h2>
+          <ul>
+            <li>Deutsch</li>
+            <li>Englisch</li>
+          </ul>
+        </section>
 
-      <curriculum-vita-sections data-src="curriculumVitaeData.sections"></curriculum-vita-sections>
+        <section class="contentSecondColumn">
+          <cv-content-section>
+            <h2 slot="title">📈 Berufserfahrung</h2>
+            <section slot="entries">
+              <cv-content-entry>
+                <h3 slot="date">01.09.19 – aktuell</h3>
+                <h3 slot="header">Senior Entwickler - <a href="https://www.maibornwolff.de/">MaibornWolff</a></h3>
+                <p slot="description">Fullstack Developer in 5 agilen Projekten für 4 unterschiedliche Kunden mit unterschiedlichen Tech Stacks</p>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">01.09.18 – 31.08.19</h3>
+                <h3 slot="header">Entwickler - <a href="https://www.omikron.net/">Omikron Data Quality GmbH</a></h3>
+                <p slot="description">Wartung einer Polymer 1 basierten frontend library zur Integration der server-seitigen Shop-Engine, sowie das Upgraden auf Polymer 3 und Lit-Element</p>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">01.04.17 – 31.08.18</h3>
+                <h3 slot="header">Entwickler - <a href="https://www.fastleansmart.com">Fast Lean Smart</a></h3>
+                <p slot="description">Entwicklung eines React basierten Clients für Dispatcher aufbauend auf einem Server, der Ressourcen in Echtzeit verplanen und optimieren kann</p>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">01.08.16 – 31.10.16</h3>
+                <h3 slot="header">Studentische Hilfskraft  - <a href="https://www.uni-kiel.de/de/">CAU</a></h3>
+                <p slot="description">Web-Entwickler in einem Forschungsprojekt welches historische Dokumente und Statistiken digital aufarbeitet</p>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">15.08.13 – 30.06.14</h3>
+                <h3 slot="header">Studentische Hilfskraft  - <a href="https://www.fit.fraunhofer.de/">Fraunhofer FIT</a></h3>
+                <p slot="description">Studentische Hilfskraft inklusive Bachelor Arbeit "Refaktorisierung eines Smartphone-basierten Content Management Systems"</p>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">02.01.13 – 31.03.13</h3>
+                <h3 slot="header">Praktikum - <a href="https://www.dataport.de/">Dataport Altenholz</a></h3>
+                <p slot="description">Automatisierung von Softwareentwicklungsprozessen in der Abteilung E-Government Basislösungen</p>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">01.10.09 – 31.07.10</h3>
+                <h3 slot="header">Zivildienst - <a href="https://www.caritas-rheinsieg.de/">Caritasverband Rhein-Sieg e.V</a></h3>
+                <p slot="description">Im Bereich der Altersbetreuung und auf Minijob Basis um einen Monat verlängert</p>
+              </cv-content-entry>
+            </section>
+          </cv-content-section>
+
+          <cv-content-section>
+            <h2 slot="title">🎓 Ausbildung</h2>
+            <section slot="entries">
+              <cv-content-entry>
+                <h3 slot="date">01.10.14 – 31.03.17</h3>
+                <h3 slot="header">Master Informatik (∅ 1.4)</h3>
+                <p slot="description">An der Christian-Albrechts Universität zu Kiel mit Anwendungs­fach Mathematik (<a href="https://shaman-apprentice.github.io/MyMasterThesis/">Link zur Master Arbeit</a>)</p>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">01.09.10 – 31.08.14</h3>
+                <h3 slot="header">Bachelor Informatik (∅ 1.6)</a></h3>
+                <p slot="description">An der Hochschule Bonn Rhein-Sieg mit Spezialisierung Komplexe Software­systeme</p>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">2009</h3>
+                <h3 slot="header">Abitur (∅ 2.0)</h3>
+                <p slot="description">Am Rhein-Sieg-Gymnasium</p>
+              </cv-content-entry>
+            </section>
+          </cv-content-section>
+
+          <cv-content-section>
+            <h2 slot="title">⛹ Hobbys</h2>
+            <section slot="entries">
+              <cv-content-entry>
+                <h3 slot="header">Tischtennis</h3>
+                <p slot="description">1. Mannschaft in der Bezirksliga beim BSV A. d. Wissenschaften</a></p>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="header">Go</a></h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="header">Fußball</h3>
+              </cv-content-entry>
+            </section>
+          </cv-content-section>
+
+          <cv-content-section>
+            <h2 slot="title">👑 Sonstiges</h2>
+            <section slot="entries">
+              <cv-content-entry>
+                <h3 slot="header"><a href="https://github.com/shaman-apprentice">Mein GitHub Account</a></h3>
+                <p class="printOnly" slot="description">https://github.com/shaman-apprentice</p>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="header">Veröffentlichte Blogbeiträge</h3>
+                <section slot="description">
+                  <ul>
+                    <li><a href="https://www.maibornwolff.de/en/know-how/are-clean-code-and-business-value-connected">Are clean code and business value connected?</a></li>
+                    <li>A triology about JavaScript:
+                      <a href="https://www.maibornwolff.de/en/know-how/javascripts-annoying-past">Annoying past of JavaScript</a>,
+                      <a href="https://www.maibornwolff.de/en/know-how/why-javascript-definitely-cool-thing">Why JavaScript is definitely a cool thing</a>,
+                      <a href="https://www.maibornwolff.de/en/know-how/my-personal-language-challenge-c-vs-java-vs-python-vs-javascript">My personal language challenge C vs Java vs Python vs JavaScript</a>
+                    </li>
+                  </ul>
+                </section>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">02.12.22</h3>
+                <h3 slot="header">Betriebliche Brandschutzhelfer Ausbildung</h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">01.09.21 – 01.11.22</h3>
+                <h3 slot="header">Migration des Open Source Tools <a href="https://github.com/MaibornWolff/codecharta">CodeCharta</a> von AngularJS auf Angular</h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">13.02.21</h3>
+                <h3 slot="header">Node.js Application Developer Certificate</h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">26.05.20</h3>
+                <h3 slot="header">AZ-203: Microsoft Azure Developer Associate Certifiacte</h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">10.04.20</h3>
+                <h3 slot="header">AZ-900: Microsoft Azure Fundamentals Certificate</h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">20.01.20</h3>
+                <h3 slot="header">Betriebliche Ersthelfer Ausbildung</h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">2011/12/14/15/16</h3>
+                <h3 slot="header">Deutscher Paar-Go-Meister</h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">2011/12 & 2012/13</h3>
+                <h3 slot="header">Deutschlandstipendium</h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">2009 – 2011</h3>
+                <h3 slot="header">Kassenprüfer beim Go-Verband-NRW</h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">2007</h3>
+                <h3 slot="header">Deutscher Jugend-Go-Meister</h3>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">2006 – 2007</h3>
+                <h3 slot="header">Sportbeisitzer der Schülervertretung</h3>
+              </cv-content-entry>
+            </section>
+          </cv-content-section>
+        </section>
+      </section>
     </section>
   </body>
 </html>
