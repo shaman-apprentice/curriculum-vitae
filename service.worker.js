@@ -1,10 +1,12 @@
 const cacheName = "TorstenKnaufV1";
 const pathnamesToCache = [
+  "/app.webmanifest",
   "/",
   "/index.html",
   "/assets/applicationPhoto.jpg",
   "/assets/favicon.ico",
   "/assets/QRCodeToWebPage.svg",
+  "/assets/splashScreen.png",
   "/css/browserReset.css",
   "/css/styles.css",
   "/css/styles.desktop.css",
