@@ -3,26 +3,32 @@ h1, h2 {
   color: rgb(49, 132, 155);
   margin: 8px 0;
 }
+
 h1 {
   background-color: rgb(191, 238, 247);
 }
+
 @media (min-width: 425px) {
   h1 br.breakBelow425px {
     display: none;
   }
 } 
+
 @media (max-width: 424px) {
   h1 span.showAbove425px {
     display: none;
   }
 }
+
 h2 {
   border-bottom: 2px solid rgb(191, 238, 247);
 }
+
 h3 {
   margin: 0;
   color: rgb(10, 20, 36);
 }
+
 p {
   margin: 4px 8px;
 }
