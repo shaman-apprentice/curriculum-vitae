@@ -1,5 +1,5 @@
-const cacheName = "TorstenKnaufV1.0.1";
-const previousVersionCacheName = "TorstenKnaufV1";
+const cacheName = "TorstenKnaufV1.0.2";
+const previousVersionCacheName = "TorstenKnaufV1.0.1";
 const pathnamesToCache = [
   "/app.webmanifest",
   "/",
@@ -16,6 +16,8 @@ const pathnamesToCache = [
   "/src/contentEntry.component.js",
   "/src/contentSection.component.js",
 ];
+const basePath = location.host.includes("github.io") ? "/curriculum-vitae" : ""
+const servedPathnamesToCache = pathnamesToCache.map(path => basePath + path)
 
 self.addEventListener("install", event => {
   fillCache(event);
@@ -25,11 +27,6 @@ self.addEventListener("install", event => {
   self.skipWaiting(); 
 
   function fillCache(event) {
-    const urlOfSelf = event.target.serviceWorker.scriptURL;
-    const isOnGitHubPages = urlOfSelf.includes("github.io");
-    const servedPathnamesToCache = isOnGitHubPages
-      ? ["/curriculum-vitae", ...pathnamesToCache.map(p => "/curriculum-vitae" + p)]
-      : pathnamesToCache;
     event.waitUntil(Promise.all([
       caches.delete(previousVersionCacheName),
       caches.open(cacheName).then(cache => cache.addAll(servedPathnamesToCache))
@@ -39,7 +36,7 @@ self.addEventListener("install", event => {
 
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
-  if (url.origin === location.origin && pathnamesToCache.includes(url.pathname)) {
+  if (url.origin === location.origin && servedPathnamesToCache.includes(url.pathname)) {
     return event.respondWith(replyFromCache(url.pathname, event.request));
   }
 

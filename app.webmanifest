@@ -17,7 +17,8 @@
   "categories": ["business"],
   "background_color": "white",
   "theme_color": "black",
-  "start_url": "/curriculum-vitae/?version=1.0.1",
+  "start_url": "./?version=1.0.2",
+  "scope": "./",
   "display": "standalone",
   "id": "Torsten Knauf"
 }

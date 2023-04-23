@@ -14,6 +14,14 @@
     <link rel="stylesheet" type="text/css" media="(min-width:640px), print" href="./css/styles.desktop.css" />
     <link rel="stylesheet" type="text/css" media="print" href="./css/styles.print.css" />
 
+    <script>
+      if ("serviceWorker" in navigator) {
+        const scope = window.location.host.includes("github.io") ? "/curriculum-vitae/" : "/";
+        navigator.serviceWorker.register(`${scope}service.worker.js`, { scope })
+          .catch(console.error);
+      }
+    </script>
+
     <script type="module">
       import { ApplicationPhotoComponent } from "./src/applicationPhoto.component.js";
       import { ContentSectionComponent } from "./src/contentSection.component.js";
@@ -22,12 +30,6 @@
       customElements.define("cv-application-photo", ApplicationPhotoComponent);
       customElements.define("cv-content-section", ContentSectionComponent);
       customElements.define("cv-content-entry", ContentEntryComponent);
-
-      if ("serviceWorker" in navigator) {
-        const scope = window.location.host.includes("github.io") ? "/curriculum-vitae/" : "/";
-        navigator.serviceWorker.register("./service.worker.js", { scope })
-          .catch(console.error);
-      }
     </script>
   </head>
 
