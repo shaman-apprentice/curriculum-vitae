@@ -3,29 +3,32 @@
   background-color: white;
 }
 
-h1, h2 {
+section.header {
+  margin-bottom: 8px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(191, 238, 247);
+}
+
+h1 {
+  font-size: 24px;
+  color: rgb(49, 132, 155);
+  margin: 0;
+}
+
+h2 {
   text-align: center;
   color: rgb(49, 132, 155);
   margin: 8px 0;
 }
+
 .contentFirstColumn h2:first-of-type {
   margin-top: 0;
 }
 
 h1 {
   background-color: rgb(191, 238, 247);
-}
-
-@media (min-width: 425px) {
-  h1 br.breakBelow425px {
-    display: none;
-  }
-} 
-
-@media (max-width: 424px) {
-  h1 span.showAbove425px {
-    display: none;
-  }
 }
 
 h2 {

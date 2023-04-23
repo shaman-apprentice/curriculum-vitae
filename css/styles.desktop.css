@@ -7,6 +7,10 @@ body {
   margin: auto;
 }
 
+section.header {
+  margin-bottom: 0;
+}
+
 .contentContainer {
   display: flex;
 }

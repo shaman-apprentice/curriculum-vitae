@@ -12,6 +12,7 @@ const pathnamesToCache = [
   "/css/styles.css",
   "/css/styles.desktop.css",
   "/css/styles.print.css",
+  "/css/theme-switcher.css",
   "/src/applicationPhoto.component.js",
   "/src/contentEntry.component.js",
   "/src/contentSection.component.js",
