@@ -27,3 +27,7 @@ h1 {
 cv-application-photo button {
   display: none;
 }
+
+.theme-switcher {
+  display: none;
+}

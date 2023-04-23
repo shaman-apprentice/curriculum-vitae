@@ -11,8 +11,10 @@
 
     <link rel="stylesheet" type="text/css" href="./css/browserReset.css" />
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/theme-switcher.css" />
     <link rel="stylesheet" type="text/css" media="(min-width:640px), print" href="./css/styles.desktop.css" />
     <link rel="stylesheet" type="text/css" media="print" href="./css/styles.print.css" />
+    <link rel="stylesheet" type="text/css" href="./css/theme.css" />
 
     <script>
       if ("serviceWorker" in navigator) {
@@ -35,7 +37,13 @@
 
   <body>
     <section class="pageContainer">
-      <h1>Lebenslauf <span class="showAbove425px">-</span> <br class="breakBelow425px">Torsten Knauf</h1>
+      <section class="header">
+        <h1>Lebenslauf Torsten Knauf</h1>
+        <label class="theme-switcher" title="Toggle Theme">
+          <input type="checkbox" />
+          <span class="slider round" onclick="(e => document.body.classList.toggle('dark'))(event)"></span>
+        </label>
+      </section>
 
       <section class="contentContainer">
         <section class="contentFirstColumn">
@@ -81,7 +89,7 @@
               <cv-content-entry>
                 <h3 slot="date">09/2019 – aktuell</h3>
                 <h3 slot="header">Senior Entwickler - <a href="https://www.maibornwolff.de/">MaibornWolff</a></h3>
-                <p slot="description">Fullstack Developer in fünf agilen Projekten für vier Kunden mit verschiedenen Tech Stacks</p>
+                <p slot="description">Fullstack Developer in fünf agilen Projekten für vier unterschiedliche Kunden mit verschiedenen Tech Stacks</p>
               </cv-content-entry>
               <cv-content-entry>
                 <h3 slot="date">09/2018 – 08/2019</h3>
@@ -166,12 +174,18 @@
                   <ul>
                     <li><a href="https://www.maibornwolff.de/en/know-how/are-clean-code-and-business-value-connected">Are clean code and business value connected?</a></li>
                     <li>A triology about JavaScript:
-                      <a href="https://www.maibornwolff.de/en/know-how/javascripts-annoying-past">Annoying past of JavaScript</a>,
-                      <a href="https://www.maibornwolff.de/en/know-how/why-javascript-definitely-cool-thing">Why JavaScript is definitely a cool thing</a>,
-                      <a href="https://www.maibornwolff.de/en/know-how/my-personal-language-challenge-c-vs-java-vs-python-vs-javascript">My personal language challenge C vs Java vs Python vs JavaScript</a>
+                      <ul>
+                        <li><a href="https://www.maibornwolff.de/en/know-how/javascripts-annoying-past">Annoying past of JavaScript</a></li>
+                        <li><a href="https://www.maibornwolff.de/en/know-how/why-javascript-definitely-cool-thing">Why JavaScript is definitely a cool thing</a></li>
+                        <li><a href="https://www.maibornwolff.de/en/know-how/my-personal-language-challenge-c-vs-java-vs-python-vs-javascript">My personal language challenge C vs Java vs Python vs JavaScript</a></li>
+                      </ul>
                     </li>
                   </ul>
                 </section>
+              </cv-content-entry>
+              <cv-content-entry>
+                <h3 slot="date">02/2023</h3>
+                <h3 slot="header">Certified Professional for Software Architecture by iSAQB</h3>
               </cv-content-entry>
               <cv-content-entry>
                 <h3 slot="date">12/2022</h3>
@@ -202,7 +216,7 @@
                 <h3 slot="header">Deutscher Meister im Paar-Go</h3>
               </cv-content-entry>
               <cv-content-entry>
-                <h3 slot="date">2011/12 & 2012/13</h3>
+                <h3 slot="date">2011 – 2013</h3>
                 <h3 slot="header">Deutschlandstipendium</h3>
               </cv-content-entry>
               <cv-content-entry>

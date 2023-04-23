@@ -1,5 +1,5 @@
-const cacheName = "TorstenKnaufV1.0.2";
-const previousVersionCacheName = "TorstenKnaufV1.0.1";
+const cacheName = "TorstenKnaufV1.1.0";
+const previousVersionCacheName = "TorstenKnaufV1.0.2";
 const pathnamesToCache = [
   "/app.webmanifest",
   "/",
@@ -12,12 +12,14 @@ const pathnamesToCache = [
   "/css/styles.css",
   "/css/styles.desktop.css",
   "/css/styles.print.css",
+  "/css/theme.css",
+  "/css/theme-switcher.css",
   "/src/applicationPhoto.component.js",
   "/src/contentEntry.component.js",
   "/src/contentSection.component.js",
 ];
-const basePath = location.host.includes("github.io") ? "/curriculum-vitae" : ""
-const servedPathnamesToCache = pathnamesToCache.map(path => basePath + path)
+const basePath = location.host.includes("github.io") ? "/curriculum-vitae" : "";
+const servedPathnamesToCache = pathnamesToCache.map(path => basePath + path);
 
 self.addEventListener("install", event => {
   fillCache(event);
