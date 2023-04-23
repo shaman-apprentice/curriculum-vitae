@@ -1,3 +1,8 @@
+.pageContainer {
+  padding: 16px;
+  background-color: white;
+}
+
 h1, h2 {
   text-align: center;
   color: rgb(49, 132, 155);

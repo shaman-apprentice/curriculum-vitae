@@ -5,8 +5,6 @@ body {
 .pageContainer {
   max-width: 210mm; /* A4 is 210mm * 296mm sized */
   margin: auto;
-  padding: 8px;
-  background-color: white;
 }
 
 .contentContainer {
