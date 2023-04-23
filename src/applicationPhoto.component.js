@@ -10,7 +10,9 @@ export class ApplicationPhotoComponent extends HTMLElement {
     super();
 
     if (window.location.search.includes("noApplicationImage=true")) {
-      this.style.display = "none";
+      this.style.height = "0";
+      this.style.overflow = "hidden";
+      this.style["margin-bottom"] = "12px";
       return;
     }
 
