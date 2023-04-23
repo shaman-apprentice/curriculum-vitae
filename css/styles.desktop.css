@@ -18,8 +18,7 @@ cv-application-photo {
 }
 /* align with first header from second column */
 cv-application-photo button {
-  margin-top: 8px; 
-  margin-bottom: 8px;
+  margin-top: 12px; 
 }
 
 h2 {
