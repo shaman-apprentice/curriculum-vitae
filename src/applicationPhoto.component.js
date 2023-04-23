@@ -1,6 +1,6 @@
 /**
  * <button>
- *   <div>(Minimiere Foto | Zeige Foto)</div>
+ *   <div>(Verstecke Foto | Zeige Foto)</div>
  *   <div class="icon">(↥ | ↧)</div>
  * </button>
  * <img src="./assets/applicationPhoto.jpg" alt="Foto von Torsten Knauf"/>
@@ -21,7 +21,7 @@ export class ApplicationPhotoComponent extends HTMLElement {
     const showPhotoButton = document.createElement("button");
 
     const showPhotoButtonTextSpan = document.createElement("div");
-    showPhotoButtonTextSpan.textContent = "Minimiere Foto";
+    showPhotoButtonTextSpan.textContent = "Verstecke Foto";
     showPhotoButton.appendChild(showPhotoButtonTextSpan);
 
     const showPhotoButtonIcon = document.createElement("div");
@@ -32,7 +32,7 @@ export class ApplicationPhotoComponent extends HTMLElement {
     showPhotoButton.onclick = () => {
       const isPhotoCurrentlyHidden = img.classList.contains("hidePhoto"); 
       if (isPhotoCurrentlyHidden) {
-        showPhotoButtonTextSpan.textContent = "Minimiere Foto";
+        showPhotoButtonTextSpan.textContent = "Verstecke Foto";
         showPhotoButtonIcon.textContent = "↥";
         img.classList.remove("hidePhoto");
       } else {

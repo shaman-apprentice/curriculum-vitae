@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: var(--cv-bg-color-out-of-scope);
 }
 
 .pageContainer {
@@ -34,7 +34,7 @@ h2 {
 
 .contentSecondColumn section[slot="entries"] {
   margin-left: 12px;
-  border-left: 4px solid rgb(191, 238, 247);
+  border-left: 4px solid var(--cv-bg-color-secondary);
 }
 
 cv-content-entry {

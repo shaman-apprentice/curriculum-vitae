@@ -1,6 +1,7 @@
 .pageContainer {
   padding: 16px;
-  background-color: white;
+  background-color: var(--cv-bg-color);
+  color: var(--cv-color);
 }
 
 section.header {
@@ -8,18 +9,18 @@ section.header {
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(191, 238, 247);
+  background-color: var(--cv-bg-color-secondary);
 }
 
 h1 {
   font-size: 24px;
-  color: rgb(49, 132, 155);
+  color: var(--cv-color-heading);
   margin: 0;
 }
 
 h2 {
   text-align: center;
-  color: rgb(49, 132, 155);
+  color: var(--cv-color-heading);
   margin: 8px 0;
 }
 
@@ -28,16 +29,11 @@ h2 {
 }
 
 h1 {
-  background-color: rgb(191, 238, 247);
+  background-color: var(--cv-bg-color-secondary);
 }
 
 h2 {
-  border-bottom: 2px solid rgb(191, 238, 247);
-}
-
-h3 {
-  margin: 0;
-  color: rgb(10, 20, 36);
+  border-bottom: 2px solid var(--cv-bg-color-secondary);
 }
 
 p {
@@ -49,11 +45,14 @@ p {
 }
 
 cv-application-photo button {
-  width: 100%;
+  cursor: pointer;
   display: flex;
+  width: 100%;
+  align-items: center;
   justify-content: space-between;
-  border: 2px solid rgb(49, 132, 155);
-  background-color: rgb(191, 238, 247);
+  height: 24px;
+  border: 0;
+  background-color: var(--cv-action-color);
 }
 cv-application-photo button .icon {
   font-weight: bold;
