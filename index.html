@@ -6,6 +6,7 @@
     <meta name="description" content="Lebenslauf von Torsten Knauf" />
     <meta name="theme-color" content="black" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="manifest" href="./app.webmanifest" />
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
 
@@ -56,15 +57,14 @@
 
           <h2>Persönliche Daten</h2>
           <p>30.11.1989, Köln</p>
-          <p>0151 / 544 225 62</p>
-          <p>Torsten.Knauf@gmx.de</p>
+          <p><a href="tel:+4915154422562">0151 / 544 225 62</a></p>
+          <p><a href="mailto:Torsten.Knauf@gmx.de">Torsten.Knauf@gmx.de</a></p>
           <p>Hasselwerderstr. 32,<br />12439 Berlin</p>
       
           <h2>Main Skills</h2>
           <ul>
             <li>Fullstack JavaScript Developer</li>
-            <li>Agile Methoden</li>
-            <li>Neue Herausforderungen meistern</li>
+            <li>Neue Herausfor&shy;derungen meistern</li>
           </ul>
       
           <h2>Erfahrungen mit</h2>
@@ -89,7 +89,9 @@
               <cv-content-entry>
                 <h3 slot="date">09/2019 – aktuell</h3>
                 <h3 slot="header">Senior Entwickler - <a href="https://www.maibornwolff.de/">MaibornWolff</a></h3>
-                <p slot="description">Fullstack Developer in fünf agilen Projekten für vier unterschiedliche Kunden mit verschiedenen Tech Stacks</p>
+                <p slot="description">Full-stack Entwickler in fünf agilen Projekten mit hauptsächlich JavaScript Tech-stack;
+                  je nach Projektbedarf von der Umsetzung fertig konzipierter User-Stories über die Anleitung junger Kollegen bis zur Unterstützung beim Herausarbeiten und Umsetzen ganzer Epics
+                </p>
               </cv-content-entry>
               <cv-content-entry>
                 <h3 slot="date">09/2018 – 08/2019</h3>
@@ -145,7 +147,7 @@
             </section>
           </cv-content-section>
 
-          <cv-content-section>
+          <cv-content-section class="pageBreakAfterHobbysSection">
             <h2 slot="title">⛹ Hobbys</h2>
             <section slot="entries">
               <cv-content-entry>
