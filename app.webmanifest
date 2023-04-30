@@ -17,7 +17,7 @@
   "categories": ["business"],
   "background_color": "white",
   "theme_color": "black",
-  "start_url": "./?version=1.1.0",
+  "start_url": "./?version=1.2.0",
   "scope": "./",
   "display": "standalone",
   "id": "Torsten Knauf"
