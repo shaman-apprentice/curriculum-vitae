@@ -1,5 +1,5 @@
-const cacheName = "TorstenKnaufV1.2.0";
-const previousVersionCacheName = "TorstenKnaufV1.1.0";
+const cacheName = "TorstenKnaufV1.2.1";
+const previousVersionCacheName = "TorstenKnaufV1.2.0";
 const pathnamesToCache = [
   "/app.webmanifest",
   "/",
