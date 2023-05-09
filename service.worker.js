@@ -1,5 +1,5 @@
-const cacheName = "TorstenKnaufV1.2.1";
-const previousVersionCacheName = "TorstenKnaufV1.2.0";
+// Version 1.2.2 - update version to ensure service worker is bitwise different than previous one and it gets reinstalled leading to cache update in installation script
+const cacheName = "CurriculumVitaTorstenKnauf";
 const pathnamesToCache = [
   "/app.webmanifest",
   "/",
@@ -23,18 +23,24 @@ const servedPathnamesToCache = pathnamesToCache.map(path => basePath + path);
 
 self.addEventListener("install", event => {
   fillCache(event);
-  // This force update is fine, as we only have a static pwa.
-  // Otherwise we should implement a more sophisticated approach.
-  // See e.g. https://whatwebcando.today/articles/handling-service-worker-updates
+  // Force update to immediately present latest version.
+  // See https://whatwebcando.today/articles/handling-service-worker-updates for more sophisticated approaches
   self.skipWaiting(); 
 
   function fillCache(event) {
-    event.waitUntil(Promise.all([
-      caches.delete(previousVersionCacheName),
-      caches.open(cacheName).then(cache => cache.addAll(servedPathnamesToCache))
-    ]));
+    event.waitUntil(caches.delete(cacheName)
+      .then(() => caches.open(cacheName))
+      .then(cache => cache.addAll(servedPathnamesToCache))
+    );
   }
 });
+
+self.addEventListener('activate', async () => {
+  const openedTabs = await self.clients.matchAll({type: 'window'})
+  openedTabs.forEach((tab) => {
+    tab.navigate(tab.url) // reload to ensure cached files weren't already served before activation
+  })
+})
 
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
