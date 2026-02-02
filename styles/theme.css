@@ -1,0 +1,41 @@
+:root {
+  --ff: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter,
+    Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --ff-heading: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter,
+    Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --page-width: min(210mm, 100vw);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #0b0f14;
+  --color-paper: #0f1620;
+  --color-fg: #e7edf6;
+  --color-line: #263244;
+  --color-link: #7db1ff;
+  --color-link-hover: #a9ccff;
+  --color-ring: #7aa7ff;
+  --color-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #f6f7f8;
+  --color-paper: #ffffff;
+  --color-fg: #0f141a;
+  --color-line: #d7dde6;
+  --color-link: #0b57d0;
+  --color-link-hover: #0842a0;
+  --color-ring: #5b8cff;
+  --shadow: 0 1px 2px rgba(15, 20, 26, 0.06), 0 12px 28px rgba(15, 20, 26, 0.08);
+}

@@ -1,0 +1,27 @@
+@media print {
+  #theme-switch {
+    display: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a.print-show-link[href] {
+    white-space: pre-line;
+    &::after {
+      content: ": \A" attr(href);
+    }
+  }
+
+  a.print-hidden {
+    display: none;
+  }
+  
+
+  .manual-page-break {
+    margin-top: 35mm;
+  }
+}
+

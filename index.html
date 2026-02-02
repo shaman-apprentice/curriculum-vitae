@@ -1,242 +1,407 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <title>Torsten Knauf &#128077;</title>
-    <meta charset="utf-8" />
-    <meta name="description" content="Lebenslauf von Torsten Knauf" />
-    <meta name="theme-color" content="black" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="format-detection" content="telephone=no" />
-    <link rel="manifest" href="./app.webmanifest" />
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
 
-    <link rel="stylesheet" type="text/css" href="./css/browserReset.css" />
-    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
-    <link rel="stylesheet" type="text/css" href="./css/theme-switcher.css" />
-    <link rel="stylesheet" type="text/css" media="(min-width:640px), print" href="./css/styles.desktop.css" />
-    <link rel="stylesheet" type="text/css" media="print" href="./css/styles.print.css" />
-    <link rel="stylesheet" type="text/css" href="./css/theme.css" />
+<head>
+  <title>Torsten Severing &#128077;</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="Lebenslauf von Torsten Severing" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no" />
+  <link rel="manifest" href="./app.webmanifest" />
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
 
-    <script>
-      if ("serviceWorker" in navigator) {
-        const scope = window.location.host.includes("github.io") ? "/curriculum-vitae/" : "/";
-        navigator.serviceWorker.register(`${scope}service.worker.js`, { scope })
-          .catch(console.error);
+  <link rel="stylesheet" href="./styles/index.css" />
+  <link rel="stylesheet" href="./styles/theme-switch.css" />
+  <link rel="stylesheet" type="text/css" media="(min-width:640px), print" href="./styles/layout.large.css" />
+  <link rel="stylesheet" type="text/css" media="(max-width:639px)" href="./styles/layout.small.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="./styles/print.css" />
+
+  <script>
+    /** @typedef {"light" | "dark"} Theme */
+    
+    const STORAGE_KEY = "theme";
+
+    initTheme();
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const themeSwitch = getThemeSwitch();
+      if (!themeSwitch)
+        return;
+
+      themeSwitch.addEventListener("change", toggleTheme);
+    });
+
+    function initTheme() {
+      const rememberedTheme = localStorage.getItem(STORAGE_KEY);
+      if (rememberedTheme && isTheme(rememberedTheme)) {
+        setTheme(rememberedTheme);
+        return;
       }
-    </script>
 
-    <script type="module">
-      import { ApplicationPhotoComponent } from "./src/applicationPhoto.component.js";
-      import { ContentSectionComponent } from "./src/contentSection.component.js";
-      import { ContentEntryComponent } from "./src/contentEntry.component.js";
-      
-      customElements.define("cv-application-photo", ApplicationPhotoComponent);
-      customElements.define("cv-content-section", ContentSectionComponent);
-      customElements.define("cv-content-entry", ContentEntryComponent);
-    </script>
-  </head>
+      const theme = window.matchMedia?.("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+      setTheme(theme);
+    }
 
-  <body>
-    <section class="pageContainer">
-      <section class="header">
-        <h1>Lebenslauf Torsten Knauf</h1>
-        <label class="theme-switcher" title="Toggle Theme">
-          <input type="checkbox" />
-          <span class="slider round" onclick="(e => document.body.classList.toggle('dark'))(event)"></span>
-        </label>
+    /** @param {Theme} theme */
+    function setTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      const themeSwitch = getThemeSwitch();
+      if (themeSwitch)
+        themeSwitch.checked = theme === "dark";
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      localStorage.setItem(STORAGE_KEY, next);
+      setTheme(next);
+    }
+
+    function getThemeSwitch() {
+      return document.querySelector('#theme-switch input[type="checkbox"]');
+    }
+
+    /**
+     * @param {string} value
+     * @returns {value is Theme}
+     */
+    function isTheme(value) {
+      return value === "light" || value === "dark";
+    }
+
+    if ("serviceWorker" in navigator) {
+      const scope = window.location.host.includes("github.io") ? "/curriculum-vitae/" : "/";
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./service-worker.js", { scope })
+          .catch(console.error);
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <div class="page">
+    <header style="display: flex; justify-content: space-between; align-items: center;">
+      <h1>Lebenslauf Torsten Severing</h1>
+      <label id="theme-switch" title="Toggle Theme">
+        <input type="checkbox" name="theme" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <main>
+      <section class="generic-data">
+        <section class="personal-data">
+          <img src="./assets/application-photo.jpg" alt="Bewerbungsfoto von Torsten Severing" />
+
+          <h3>Persönliche Daten</h3>
+
+          <div class="data-container">
+            <p>30.11.1989, Köln</p>
+            <p><a href="tel:+4915154422562">0151 / 685 845 04</a></p>
+            <p><a href="mailto:Torsten@Severing.de">Torsten@Severing.de</a></p>
+            <p>Küppersgarten 23,<br />53229 Bonn</p>
+          </div>
+        </section>
+
+        <h3>Main Skills</h3>
+        <ul>
+          <li>Full-Stack TypeScript Developer</li>
+          <li>Neue Herausfor&shy;derungen meistern</li>
+          <li>Team Player</li>
+        </ul>
+
+        <h3>Bevorzugte Arbeits&shy;methoden</h3>
+        <ul>
+          <li>Agile Methoden</li>
+          <li>Get the job done</li>
+          <li>Interdisziplinäre Teams</li>
+        </ul>
+
+        <h3>Sprachen</h3>
+        <p>Deutsch, Englisch</p>
+
+        <h3>Hobbys</h3>
+        <ul>
+          <li>Tischtennis: ASV St. Augustin Bezirksliga</li>
+          <li>Go: Tenuki Bonn Bundesliga</li>
+          <li>Brett- und Ballspiele</li>
+        </ul>
       </section>
 
-      <section class="contentContainer">
-        <section class="contentFirstColumn">
-          <cv-application-photo></cv-application-photo>
+      <section class="stages">
+        <h2>📈 Berufserfahrung</h2>
 
-          <section class="printOnly qrCode">
-            <img src="./assets/QRCodeToWebPage.svg" alt="QR-Code zur Web Version des Lebenslaufes"/>
-            <p style="font-size: 0.8em;">QR-Code zur Web Version des Lebenslaufes</p>
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>10/2023 – aktuell</h3>
           </section>
-
-          <h2>Persönliche Daten</h2>
-          <p>30.11.1989, Köln</p>
-          <p><a href="tel:+4915154422562">0151 / 544 225 62</a></p>
-          <p><a href="mailto:Torsten.Knauf@gmx.de">Torsten.Knauf@gmx.de</a></p>
-          <p>Hasselwerderstr. 32,<br />12439 Berlin</p>
-      
-          <h2>Main Skills</h2>
-          <ul>
-            <li>Full-stack TypeScript Developer</li>
-            <li>Neue Herausfor&shy;derungen meistern</li>
-          </ul>
-      
-          <h2>Erfahrungen mit</h2>
-          <ul>
-            <li>Frontend: React, Angular, AngularJS, Polymer 1 & 3, LitElement</li>
-            <li>Backend: NestJS, fastify, Express JS, Java, Python</li>
-            <li>DevOps: GitLab pipelines, GitHub Actions, Docker, Azure, AWS</li>
-            <li>Mobile: Android, Expo JS</li>
-          </ul>
-      
-          <h2>Sprachen</h2>
-          <ul>
-            <li>Deutsch</li>
-            <li>Englisch</li>
-          </ul>
+          <section class="stage-title">
+            <h3>Entwickler - <a href="https://www.sea-gmbh.com/">S.E.A. Science & Engineering Applications Datentechnik
+                GmbH</a></h3>
+          </section>
+          <section class="stage-description">
+            Modernisierung bestehender Desktop Clients hin zu modernen Web Clients innerhalb einer etablierten
+            Produkt­landschaft für Mobilfunk- und WLAN-Vermessung. Damit verbunden auch die Sanierung der
+            serverseitigen Struktur, sowie das Etablieren neuer Arbeitsweisen und UX-Konzepten im kleinen,
+            aber hoch spezialisierten Team
+          </section>
         </section>
 
-        <section class="contentSecondColumn">
-          <cv-content-section>
-            <h2 slot="title">📈 Berufserfahrung</h2>
-            <section slot="entries">
-              <cv-content-entry>
-                <h3 slot="date">09/2019 – aktuell</h3>
-                <h3 slot="header">Senior Entwickler - <a href="https://www.maibornwolff.de/">MaibornWolff</a></h3>
-                <p slot="description">Full-stack Entwickler in fünf agilen Projekten mit hauptsächlich TypeScript Tech-stack;
-                  je nach Projektbedarf von der Umsetzung fertig konzipierter User-Stories über die Anleitung junger Kollegen bis zur Unterstützung beim Herausarbeiten und Umsetzen ganzer Epics
-                </p>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">09/2018 – 08/2019</h3>
-                <h3 slot="header">Entwickler - <a href="https://www.omikron.net/">Omikron Data Quality GmbH</a></h3>
-                <p slot="description">Wartung einer Polymer 1-basierten Frontend Library zur Integration der Backend-seitigen Shop-Engine sowie Migration auf Polymer 3 und LitElement</p>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">04/2017 – 08/2018</h3>
-                <h3 slot="header">Entwickler - <a href="https://www.fastleansmart.com">Fast Lean Smart</a></h3>
-                <p slot="description">Entwicklung eines React-basierten Clients für Dispatcher auf­bauend auf einem Backend, welches Termine und Ressourcen in Echtzeit verplant</p>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">08/2016 – 10/2016</h3>
-                <h3 slot="header">Studentische Hilfskraft  - <a href="https://www.uni-kiel.de/de/">CAU</a></h3>
-                <p slot="description">Web-Entwickler in einem Forschungsprojekt, welches historische Dokumente und Statistiken digital aufarbeitet</p>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">08/2013 – 06/2014</h3>
-                <h3 slot="header">Studentische Hilfskraft  - <a href="https://www.fit.fraunhofer.de/">Fraunhofer FIT</a></h3>
-                <p slot="description">Studentische Hilfskraft inklusive Bachelor Arbeit "Refaktorisierung eines Smartphone-basierten Content Management Systems"</p>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">01/2013 – 03/2013</h3>
-                <h3 slot="header">Praktikum - <a href="https://www.dataport.de/">Dataport Altenholz</a></h3>
-                <p slot="description">Automatisierung von Softwareentwicklungsprozessen in der Abteilung E-Government Basislösungen</p>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">10/2009 – 07/2010</h3>
-                <h3 slot="header">Zivildienst - <a href="https://www.caritas-rheinsieg.de/">Caritasverband Rhein-Sieg e.V</a></h3>
-                <p slot="description">Im Bereich der Altersbetreuung und auf Minijob Basis um einen Monat verlängert</p>
-              </cv-content-entry>
-            </section>
-          </cv-content-section>
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>09/2019 – 09/2023</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Senior Entwickler - <a href="https://www.maibornwolff.de/">MaibornWolff GmbH</a></h3>
+          </section>
+          <section class="stage-description">
+            Full-Stack Entwickler in fünf agilen externen Projekten mit Schwerpunkt auf TypeScript Tech-Stack. Je nach
+            Projekt­bedarf Implementierung fertig konzipierter User Stories, Realisierung technischer
+            Ver­besserungen, Anleitung junger Kollegen, oder Ausarbeitung von User Stories und
+            Epics
+          </section>
+        </section>
 
-          <cv-content-section>
-            <h2 slot="title">🎓 Ausbildung</h2>
-            <section slot="entries">
-              <cv-content-entry>
-                <h3 slot="date">10/2014 – 03/2017</h3>
-                <h3 slot="header">Master Informatik (∅ 1.4)</h3>
-                <p slot="description">Christian-Albrechts-Universität zu Kiel mit dem Anwendungs­fach Mathematik (<a href="https://shaman-apprentice.github.io/MyMasterThesis/">Link zur Master Arbeit</a>)</p>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">09/2010 – 08/2014</h3>
-                <h3 slot="header">Bachelor Informatik (∅ 1.6)</a></h3>
-                <p slot="description">Hochschule Bonn-Rhein-Sieg in Sankt Augustin mit der Spezialisierung komplexe Software­systeme</p>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">2009</h3>
-                <h3 slot="header">Abitur (∅ 2.0)</h3>
-                <p slot="description">Rhein-Sieg-Gymnasium in Sankt Augustin</p>
-              </cv-content-entry>
-            </section>
-          </cv-content-section>
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>09/2018 – 08/2019</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Entwickler - <a href="https://www.omikron.net/">Omikron Data Quality GmbH</a></h3>
+          </section>
+          <section class="stage-description">
+            Wartung einer Polymer 1-basierten Frontend Library zur Integration der serverseitigen Shop-Engine sowie
+            Moder­nisierung auf zunächst Polymer 3, LitElement und anschließend native Web Components
+          </section>
+        </section>
 
-          <cv-content-section class="pageBreakAfterHobbysSection">
-            <h2 slot="title">⛹ Hobbys</h2>
-            <section slot="entries">
-              <cv-content-entry>
-                <h3 slot="header">Tischtennis</h3>
-                <p slot="description">Erste Mannschaft in der Bezirksliga beim BSV A. d. Wissenschaften</a></p>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="header">Go</a></h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="header">Fußball</h3>
-              </cv-content-entry>
-            </section>
-          </cv-content-section>
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>04/2017 – 08/2018</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Entwickler - <a href="https://solvares-fieldservice.com/">Fast Lean Smart</a></h3>
+          </section>
+          <section class="stage-description">
+            Entwicklung eines React-basierten Clients für Dis­patcher auf­bauend auf einem bestehenden Backend
+          </section>
+        </section>
 
-          <cv-content-section>
-            <h2 slot="title">👑 Sonstiges</h2>
-            <section slot="entries">
-              <cv-content-entry>
-                <h3 slot="header"><a href="https://github.com/shaman-apprentice">Mein GitHub Account</a></h3>
-                <p class="printOnly" slot="description">https://github.com/shaman-apprentice</p>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="header">Veröffentlichte Blogbeiträge</h3>
-                <section slot="description">
-                  <ul>
-                    <li><a href="https://www.maibornwolff.de/en/know-how/are-clean-code-and-business-value-connected">Are clean code and business value connected?</a></li>
-                    <li>A triology about JavaScript:
-                      <ul>
-                        <li><a href="https://www.maibornwolff.de/en/know-how/javascripts-annoying-past">Annoying past of JavaScript</a></li>
-                        <li><a href="https://www.maibornwolff.de/en/know-how/why-javascript-definitely-cool-thing">Why JavaScript is definitely a cool thing</a></li>
-                        <li><a href="https://www.maibornwolff.de/en/know-how/my-personal-language-challenge-c-vs-java-vs-python-vs-javascript">My personal language challenge C vs Java vs Python vs JavaScript</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </section>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">02/2023</h3>
-                <h3 slot="header">Certified Professional for Software Architecture by iSAQB</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">12/2022</h3>
-                <h3 slot="header">Betriebliche Brandschutzhelfer Ausbildung</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">09/2021 – 11/2022</h3>
-                <h3 slot="header">Migration des Open Source Tools <a href="https://github.com/MaibornWolff/codecharta">CodeCharta</a> von AngularJS auf Angular</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">02/2021</h3>
-                <h3 slot="header">Node.js Application Developer Certificate</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">05/2020</h3>
-                <h3 slot="header">AZ-203: Microsoft Azure Developer Associate Certificate</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">04/2020</h3>
-                <h3 slot="header">AZ-900: Microsoft Azure Fundamentals Certificate</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">01/2020</h3>
-                <h3 slot="header">Betriebliche Ersthelfer Ausbildung</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">2011/12/14/15/16</h3>
-                <h3 slot="header">Deutscher Meister im Paar-Go</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">2011 – 2013</h3>
-                <h3 slot="header">Deutschlandstipendium</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">2009 – 2011</h3>
-                <h3 slot="header">Kassenprüfer beim Go-Verband NRW</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">2007</h3>
-                <h3 slot="header">Deutscher Jugendmeister im Go</h3>
-              </cv-content-entry>
-              <cv-content-entry>
-                <h3 slot="date">2006 – 2007</h3>
-                <h3 slot="header">Sportbeisitzer der Schülervertretung</h3>
-              </cv-content-entry>
-            </section>
-          </cv-content-section>
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>08/2016 – 10/2016</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Studentische Hilfskraft - <a href="https://www.uni-kiel.de/de/">CAU</a></h3>
+          </section>
+          <section class="stage-description">
+            Web-Entwickler in einem Forschungsprojekt zur Auf­arbeitung historischer Dokumente
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>08/2013 – 06/2014</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Studentische Hilfskraft - <a href="https://www.fit.fraunhofer.de/">Frauenhofer FIT</a></h3>
+          </section>
+          <section class="stage-description">
+            Studentische Hilfskraft inklusive Bachelor Arbeit „Refak­tori­sierung eines Smartphone-basierten Content
+            Management Systems“
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>10/2009 – 07/2010</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Zivildienst - <a href="https://www.caritas-rheinsieg.de/">Caritasverband Rhein-Sieg e.V</a></h3>
+          </section>
+          <section class="stage-description">
+            Im Bereich der Altersbetreuung und auf Minijob Basis um einen Monat verlängert
+          </section>
+        </section>
+
+        <h2>🎓 Ausbildung</h2>
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>2017</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Master Informatik (∅ 1.4)</h3>
+          </section>
+          <section class="stage-description">
+            Christian-Albrechts-Universität zu Kiel mit dem Anwen­dungs­fach Mathematik <a
+              href="https://shaman-apprentice.github.io/MyMasterThesis/" class="print-hidden">(Link zur Master Arbeit)</a>
+          </section>
+        </section>
+
+        <h2 class="manual-page-break">💻 Weitere Fortbildungen</h2>
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3></h3>
+          </section>
+          <section class="stage-title">
+            <h3><a href="https://github.com/shaman-apprentice">GitHub</a> Account</h3>
+          </section>
+          <section class="stage-description">
+            2 Beispiel Repositories:
+            <ul>
+              <li><a href="https://github.com/shaman-apprentice/release-parrot">release-parrot</a></li>
+              <li><a href="https://github.com/shaman-apprentice/together-we-choose">Together, We Choose</a></li>
+            </ul>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3></h3>
+          </section>
+          <section class="stage-title">
+            <h3><a href="https://dev.to/shaman-apprentice">Dev.to</a> Account</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>12/2025</h3>
+          </section>
+          <section class="stage-title">
+            <h3><a href="https://designerup.co/product-design-ui-ux-course">Product Design (UX/UI) Course</a></h3>
+          </section>
+          <section class="stage-description">
+            Mit finaler Umsetzung in <a href="https://together-we-choose.de/en/" class="print-show-link">Together, We Choose</a>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>12/2025</h3>
+          </section>
+          <section class="stage-title">
+            <h3><a href="https://open.hpi.de/courses/kianwendungen2025">OPEN HPI Chatbots leicht gemacht: Große
+                Sprachmodelle einfach nutzen</a></h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>02/2023</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Certified Professional for Software Architecture by iSAQB</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>09/2021 – 11/2022</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Migration des Open Source Tools <a href="https://github.com/MaibornWolff/codecharta">CodeCharta</a> von
+              AngularJS auf Angular</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>02/2021</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Node.js Application Developer Certificate</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>05/2020</h3>
+          </section>
+          <section class="stage-title">
+            <h3>AZ-203: Microsoft Azure Developer Associate Certificate</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>04/2020</h3>
+          </section>
+          <section class="stage-title">
+            <h3>AZ-900: Microsoft Azure Fundamentals Certificate</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>2011 – 2013</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Deutschlandstipendium</h3>
+          </section>
+        </section>
+
+        <h2 class="sonstiges-stage-heading">👑 Sonstiges</h2>
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>12/2022</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Betriebliche Brandschutzhelfer-Ausbildung</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>01/2020</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Betriebliche Ersthelfer-Ausbildung</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>2011/12/<br />14/15/16</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Deutscher Meister im Paar-Go</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>2009 – 2011</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Kassenprüfer beim Go-Verband NRW</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>2007</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Deutscher Jugendmeister im Go</h3>
+          </section>
+        </section>
+
+        <section class="stage">
+          <section class="stage-from-to">
+            <h3>2006 – 2007</h3>
+          </section>
+          <section class="stage-title">
+            <h3>Sportbeisitzer der Schülervertretung</h3>
+          </section>
         </section>
       </section>
-    </section>
-  </body>
+    </main>
+  </div>
+</body>
+
 </html>

@@ -1,0 +1,95 @@
+@import "./theme.css";
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--ff);
+  line-height: 1.25rem;
+}
+
+.page {
+  width: 100%;
+  max-width: 210mm;
+  margin-inline: auto;
+  padding: 1rem;
+  background-color: var(--color-paper);
+}
+
+main {
+  margin-top: .75rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+::selection {
+  background-color: color-mix(in oklab, var(--color-ring) 35%, transparent);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.16em;
+
+  &:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--ff-heading);
+  color: var(--color-fg);
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: -0.02;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.33rem;
+  font-weight: 650;
+  line-height: 1.5rem;
+  margin: 1rem 0 .5rem 0;
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: 550;
+  line-height: 1.25rem;
+  margin: .5rem 0;
+}
+
+.stage-description {
+  text-align: justify;
+
+  & ul {
+    margin: 0;
+  }
+}
+
+.generic-data {
+  & p {
+    margin: .25rem;
+  }
+
+  & ul {
+    margin: 0;
+    padding-left: 1.6rem;
+  }
+}
