@@ -1,5 +1,9 @@
 @import "./theme.css";
 
+.print-only {
+  display: none;
+}
+
 body {
   margin: 0;
   background-color: var(--color-bg);

@@ -1,4 +1,12 @@
 @media print {
+  .manual-page-break {
+    margin-top: 30mm;
+  }
+
+  .print-only {
+    display: revert;
+  }
+
   #theme-switch {
     display: none;
   }
@@ -15,13 +23,8 @@
     }
   }
 
-  a.print-hidden {
+  .print-hidden {
     display: none;
-  }
-  
-
-  .manual-page-break {
-    margin-top: 35mm;
   }
 }
 
