@@ -16,7 +16,7 @@ body {
   width: 100%;
   max-width: 210mm;
   margin-inline: auto;
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: var(--color-paper);
 }
 
@@ -55,6 +55,10 @@ h2,
 h3 {
   font-family: var(--ff-heading);
   color: var(--color-fg);
+
+  & .location {
+    font-weight: 500;
+  }
 }
 
 h1 {
@@ -62,7 +66,7 @@ h1 {
   font-weight: 750;
   line-height: 1.08;
   letter-spacing: -0.02;
-  margin: 0;
+  margin: 1rem 0;
 }
 
 h2 {
